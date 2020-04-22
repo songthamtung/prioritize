@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Two grids demo</title>
+  <title>Prioritization Tool</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="demo.css"/>
-  <link rel="stylesheet" href="../dist/gridstack-extra.css"/>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.all.js"></script>
+
 
   <script src="../src/jquery.js"></script>
   <script src="../src/gridstack.js"></script>
@@ -57,7 +60,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <h1>Two grids demo</h1>
+    <h1>Prioritization Tool</h1>
 
     <div class="row">
       <div class="col-md-3">
@@ -84,11 +87,27 @@
       <div class="col-md-6">
         <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: false</a>
         <a onClick="compact(0)" class="btn btn-primary" href="#">Compact</a>
+        Important & Urgent
         <div class="grid-stack grid-stack-6">
         </div>
       </div>
       <div class="col-md-6">
-        <a onClick="toggleFloat(this, 1)" class="btn btn-primary" href="#">float: true</a>
+        Important & Not Urgent
+        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
+        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a>
+        <div class="grid-stack grid-stack-6">
+          </div>
+      </div>
+      <div class="col-md-6">
+        Not Important & Urgent
+        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: false</a>
+        <a onClick="compact(0)" class="btn btn-primary" href="#">Compact</a>
+        <div class="grid-stack grid-stack-6">
+        </div>
+      </div>
+      <div class="col-md-6">
+        Not Important & Not Urgent
+        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
         <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a>
         <div class="grid-stack grid-stack-6">
           </div>

@@ -77,7 +77,7 @@
 
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-1">
         <div class="trash">
         </div>
       </div>
@@ -85,30 +85,24 @@
 
     <div class="row">
       <div class="col-md-6">
-        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: false</a>
-        <a onClick="compact(0)" class="btn btn-primary" href="#">Compact</a>
         Important & Urgent
         <div class="grid-stack grid-stack-6">
         </div>
       </div>
       <div class="col-md-6">
         Important & Not Urgent
-        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
-        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a>
         <div class="grid-stack grid-stack-6">
           </div>
       </div>
       <div class="col-md-6">
         Not Important & Urgent
-        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: false</a>
-        <a onClick="compact(0)" class="btn btn-primary" href="#">Compact</a>
         <div class="grid-stack grid-stack-6">
         </div>
       </div>
       <div class="col-md-6">
         Not Important & Not Urgent
-        <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
-        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a>
+        <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
+        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
         <div class="grid-stack grid-stack-6">
           </div>
       </div>
@@ -127,11 +121,11 @@
     grids[1].float(true);
 
     var items = [
-      {x: 0, y: 0, width: 2, height: 2},
-      {x: 3, y: 1, width: 1, height: 2},
-      {x: 4, y: 1, width: 1, height: 1},
-      {x: 2, y: 3, width: 3, height: 1, maxWidth: 3, id: 'special', text: 'has maxWidth=3'},
-      {x: 2, y: 5, width: 1, height: 1}
+      // {x: 0, y: 0, width: 2, height: 2},
+      // {x: 3, y: 1, width: 1, height: 2},
+      // {x: 4, y: 1, width: 1, height: 1},
+      // {x: 2, y: 3, width: 3, height: 1, maxWidth: 3, id: 'special', text: 'has maxWidth=3'},
+      // {x: 2, y: 5, width: 1, height: 1}
     ];
 
     grids.forEach(function (grid, i) {

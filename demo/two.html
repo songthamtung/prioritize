@@ -56,6 +56,24 @@
     .sidebar .grid-stack-item .grid-stack-item-content {
       background: none;
     }
+
+    .textbar {
+      background: rgba(214, 221, 214, 0.1);
+      height: 150px;
+      padding: 25px 0;
+      text-align: center;
+    }
+    .textbar .grid-stack-item {
+      width: 200px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      z-index: 10;
+      background: rgba(0, 255, 0, 0.1);
+      cursor: default;
+      display: inline-block;
+    }
+
   </style>
 </head>
 <body>
@@ -74,7 +92,18 @@
           <div class="grid-stack-item" data-gs-width="2" data-gs-height="1">
             <div class="grid-stack-item-content">Drag me 2x1</div>
           </div>
+        </div>
+      </div>
 
+      <div class="col-md-3">
+        <div class="textbar">
+          Tasks
+          <form id="addTask" action="">
+            <div class="form-group">
+              <input class="form-control" type="text" name="task" placeholder="Task" required>
+            </div>
+            <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+          </form>
         </div>
       </div>
       <div class="col-md-1">

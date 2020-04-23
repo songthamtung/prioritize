@@ -188,7 +188,9 @@
     }
 
     $('#clear').click(function(){
-      grid.removeAll(true);
+      grids.forEach(function (grid, i) {
+        grid.removeAll(true)
+      })
     });
 
     $("form").submit(function(e) {

@@ -81,17 +81,8 @@
     <h1>Prioritization Tool</h1>
 
     <div class="row">
-      <div class="col-md-3">
-        <div class="sidebar">
-          
-          <!-- will size to fit content -->
-          <!-- <div class="grid-stack-item">
-            <div class="grid-stack-item-content">Drag me</div>
-          </div> -->
-          <!-- manually force a drop size of 2x1 -->
-          <div class="grid-stack-item" data-gs-width="2" data-gs-height="1">
-            <div class="grid-stack-item-content">Drag me 2x1</div>
-          </div>
+      <div class="col-md-8">
+        <div class="grid-stack grid-stack-12">
         </div>
       </div>
 
@@ -140,7 +131,7 @@
 
   <script type="text/javascript">
     var options = {
-      column: 6,
+      column: 12,
       float: false,
       removable: '.trash',
       removeTimeout: 100,
@@ -181,7 +172,7 @@
     });
 
     var grid = GridStack.init();
-    grid.addWidget('<div><div class="grid-stack-item-content">Drag me! 🤗</div></div>', {width: 2});
+    grid.addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
 
     function toggleFloat(button, i) {
       grids[i].float(! grids[i].float());

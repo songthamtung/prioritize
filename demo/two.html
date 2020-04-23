@@ -74,6 +74,14 @@
       display: inline-block;
     }
 
+    .disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+    }
+
   </style>
 </head>
 <body>
@@ -112,26 +120,34 @@
 
     <div class="row">
       <div class="col-md-6">
-        <span id="first_quadrant">Important & Urgent</span>
+        <span id="first_quadrant" style="font-weight: bold;">Important & Urgent</span>
         <div class="grid-stack grid-stack-6">
+          <br>
+          <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Do</div>
         </div>
       </div>
       <div class="col-md-6">
-        <span id="second_quadrant">Important & Not Urgent</span>
+        <span id="second_quadrant" style="font-weight: bold;">Important & Not Urgent</span>
         <div class="grid-stack grid-stack-6">
-          </div>
-      </div>
-      <div class="col-md-6">
-        <span id="third_quadrant">Not Important & Urgent</span>
-        <div class="grid-stack grid-stack-6">
+          <br>
+          <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Plan</div>
         </div>
       </div>
       <div class="col-md-6">
-        <span id="fourth_quadrant">Not Important & Not Urgent</span>
+        <span id="third_quadrant" style="font-weight: bold;">Not Important & Urgent</span>
+        <div class="grid-stack grid-stack-6">
+          <br>
+          <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Delegate</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <span id="fourth_quadrant" style="font-weight: bold;">Not Important & Not Urgent</span>
         <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
         <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
         <div class="grid-stack grid-stack-6">
-          </div>
+          <br>
+        <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Eliminate</div>
+        </div>
       </div>
     </div>
   </div>
@@ -197,10 +213,15 @@
     });
 
     $('#effort-impact').click(function(){
-      $('#first_quadrant').text('High Effort & High Impact')
-      $('#second_quadrant').text('High Effort & Low Impact')
-      $('#third_quadrant').text('Low Effort & High Impact')
-      $('#fourth_quadrant').text('Low Effort & Low Impact')
+      $('#first_quadrant').text('Low Effort & High Impact')
+      $('#second_quadrant').text('High Effort & High Impact')
+      $('#third_quadrant').text('Low Effort & Low Impact')
+      $('#fourth_quadrant').text('High Effort & Low Impact')
+
+      $('#first_quadrant-content').text('Quick Wins')
+      $('#second_quadrant-content').text('Major Projects')
+      $('#third_quadrant-content').text('Fill in Jobs')
+      $('#fourth_quadrant-content').text('Thankless Tasks')
     });
 
     $('#important-urgent').click(function(){
@@ -208,6 +229,11 @@
       $('#second_quadrant').text('Important & Not Urgent')
       $('#third_quadrant').text('Not Important & Urgent')
       $('#fourth_quadrant').text('Not Important & Not Urgent')
+
+      $('#first_quadrant-content').text('Do')
+      $('#second_quadrant-content').text('Plan')
+      $('#third_quadrant-content').text('Delegate')
+      $('#fourth_quadrant-content').text('Elminate')
     });
   </script>
 </body>

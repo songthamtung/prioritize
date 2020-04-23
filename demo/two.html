@@ -100,7 +100,7 @@
           Tasks
           <form id="addTask" action="">
             <div class="form-group">
-              <input class="form-control" type="text" name="task" placeholder="Task" required>
+              <input class="form-control" type="text" name="task" id="task" placeholder="Task" required>
             </div>
             <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
           </form>
@@ -150,7 +150,7 @@
     grids[1].float(true);
 
     var items = [
-      // {x: 0, y: 0, width: 2, height: 2},
+      // {x: 0, y: 0, width: 2, height: 2}
       // {x: 3, y: 1, width: 1, height: 2},
       // {x: 4, y: 1, width: 1, height: 1},
       // {x: 2, y: 3, width: 3, height: 1, maxWidth: 3, id: 'special', text: 'has maxWidth=3'},
@@ -191,6 +191,13 @@
     function compact(i) {
       grids[i].compact();
     }
+
+    $("form").submit(function(e) {
+      var task = $('#task').val()
+      grid.addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
+      $('#task').val('')
+      e.preventDefault();
+    });
   </script>
 </body>
 </html>

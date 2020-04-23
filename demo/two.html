@@ -7,16 +7,9 @@
   <title>Prioritization Tool</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="demo.css"/>
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.all.js"></script>
-
-
-  <script src="../src/jquery.js"></script>
-  <script src="../src/gridstack.js"></script>
-  <script src="../src/jquery-ui.js"></script>
-  <script src="../src/gridstack.jQueryUI.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
   <style type="text/css">
     .grid-stack {
@@ -68,8 +61,41 @@
       width: 100%;
       text-align: center;
     }
+
+    /* Optional styles for demos */
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .375rem .75rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+
+    .grid-stack {
+      background: lightgoldenrodyellow;
+    }
+
+    .grid-stack-item-content {
+      color: #2c3e50;
+      text-align: center;
+      background-color: #18bc9c;
+    }
   </style>
 </head>
+
 <body>
   <div class="container-fluid">
     <h1>Prioritization Tool</h1>
@@ -163,7 +189,6 @@
     grids.forEach(function (grid, i) {
       grid.on('added removed change', function(e, items) {
         var str = '';
-        items.forEach(function(item) { str += ' (x,y)=' + item.x + ',' + item.y; });
         console.log('grid' + i + ' ' + e.type + ' ' + items.length + ' items:' + str );
       });
 
@@ -177,15 +202,6 @@
 
     var grid = GridStack.init();
     grid.addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
-
-    function toggleFloat(button, i) {
-      grids[i].float(! grids[i].float());
-      button.innerHTML = 'float: ' + grids[i].float();
-    }
-
-    function compact(i) {
-      grids[i].compact();
-    }
 
     $('#clear').click(function(){
       grids.forEach(function (grid, i) {

@@ -88,12 +88,16 @@
 
       <div class="col-md-3">
         <div class="textbar">
-          Tasks
+          <h3>Add Tasks</h3>
           <form id="addTask" action="">
-            <div class="form-group">
-              <input class="form-control" type="text" name="task" id="task" placeholder="Task" required>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="task" placeholder="Tasks" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">+</button>
+              </div>
             </div>
-            <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+            
+            <!-- <button class="btn btn-primary form-control" type="submit">SUBMIT</button> -->
           </form>
         </div>
       </div>

@@ -79,6 +79,9 @@
 <body>
   <div class="container-fluid">
     <h1>Prioritization Tool</h1>
+    <button type="button" class="btn btn-secondary" id="effort-impact">Effort / Impact</button>
+    <button type="button" class="btn btn-secondary" id="important-urgent">Important / Urgent</button>
+    <input class="btn btn-danger" type="reset" value="Reset">
 
     <div class="row">
       <div class="col-md-8">
@@ -191,6 +194,20 @@
       grid.addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
       $('#task').val('')
       e.preventDefault();
+    });
+
+    $('#effort-impact').click(function(){
+      $('#first_quadrant').text('High Effort & High Impact')
+      $('#second_quadrant').text('High Effort & Low Impact')
+      $('#third_quadrant').text('Low Effort & High Impact')
+      $('#fourth_quadrant').text('Low Effort & Low Impact')
+    });
+
+    $('#important-urgent').click(function(){
+      $('#first_quadrant').text('Important & Urgent')
+      $('#second_quadrant').text('Important & Not Urgent')
+      $('#third_quadrant').text('Not Important & Urgent')
+      $('#fourth_quadrant').text('Not Important & Not Urgent')
     });
   </script>
 </body>

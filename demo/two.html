@@ -91,7 +91,7 @@
     <button type="button" class="btn btn-secondary" id="risk-value">Risk / Value</button>
     <button type="button" class="btn btn-secondary" id="important-urgent">Important / Urgent</button>
     <button type="button" class="btn btn-secondary" id="moscow">MoSCoW</button>
-    <input class="btn btn-danger" type="reset" value="Reset">
+    <input class="btn btn-danger" type="reset" id="clear" value="Remove All">
 
     <div class="row" style="margin-top: 15px;">
       <div class="col-md-8">
@@ -206,6 +206,10 @@
     function compact(i) {
       grids[i].compact();
     }
+
+    $('#clear').click(function(){
+      grid.removeAll(true);
+    });
 
     $("form").submit(function(e) {
       var task = $('#task').val()

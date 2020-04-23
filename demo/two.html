@@ -88,10 +88,12 @@
   <div class="container-fluid">
     <h1>Prioritization Tool</h1>
     <button type="button" class="btn btn-secondary" id="effort-impact">Effort / Impact</button>
+    <button type="button" class="btn btn-secondary" id="risk-value">Risk / Value</button>
     <button type="button" class="btn btn-secondary" id="important-urgent">Important / Urgent</button>
+    <button type="button" class="btn btn-secondary" id="moscow">MoSCoW</button>
     <input class="btn btn-danger" type="reset" value="Reset">
 
-    <div class="row">
+    <div class="row" style="margin-top: 15px;">
       <div class="col-md-8">
         <div class="grid-stack grid-stack-12">
         </div>
@@ -220,7 +222,7 @@
 
       $('#first_quadrant-content').text('Quick Wins')
       $('#second_quadrant-content').text('Major Projects')
-      $('#third_quadrant-content').text('Fill in Jobs')
+      $('#third_quadrant-content').text('Fill Ins')
       $('#fourth_quadrant-content').text('Thankless Tasks')
     });
 
@@ -234,6 +236,30 @@
       $('#second_quadrant-content').text('Plan')
       $('#third_quadrant-content').text('Delegate')
       $('#fourth_quadrant-content').text('Elminate')
+    });
+
+    $('#risk-value').click(function(){
+      $('#first_quadrant').text('Low Risk & High Value')
+      $('#second_quadrant').text('High Risk & High Value')
+      $('#third_quadrant').text('Low Risk & Low Value')
+      $('#fourth_quadrant').text('High Risk & Low Value')
+
+      $('#first_quadrant-content').text('Prioritize')
+      $('#second_quadrant-content').text('Investigate')
+      $('#third_quadrant-content').text('Consider')
+      $('#fourth_quadrant-content').text('Avoid')
+    });
+
+    $('#moscow').click(function(){
+      $('#first_quadrant').text('Must Have')
+      $('#second_quadrant').text('Should Have')
+      $('#third_quadrant').text('Could Have')
+      $('#fourth_quadrant').text("Won't Have")
+
+      $('#first_quadrant-content').text('Necessary for the current release')
+      $('#second_quadrant-content').text('Necessary for future release')
+      $('#third_quadrant-content').text('Nice to have for future release')
+      $('#fourth_quadrant-content').text('Might have for future release')
     });
   </script>
 </body>

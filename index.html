@@ -13,6 +13,7 @@
 
   <style type="text/css">
     .grid-stack {
+      height: 45vh !important;
       min-height: 50px;
     }
     #grid2 {
@@ -86,18 +87,319 @@
       text-align: center;
       background-color: #18bc9c;
     }
+
+    html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #5d676c;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.l-site {
+  margin: 0 auto;
+  max-width: 1600px;
+  position: relative;
+  z-index: 1;
+}
+.l-site:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: block;
+  background: #3a4043;
+  z-index: 1;
+}
+
+.l-page {
+  position: relative;
+  margin-left: 240px;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 1px 0 25px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.l-nav {
+  position: absolute;
+  width: 240px;
+  display: block;
+  background: #3a4043;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.band h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  color: #fff;
+  font-size: 32px;
+}
+.band p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 17px;
+}
+
+.band-container {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-height: 85vh;
+  max-width: 960px;
+  display: table;
+  position: relative;
+  padding: 0 3em;
+}
+
+.band-inner {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 3em 0 4em;
+}
+
+.band-a {
+  background: #69D2E7;
+}
+
+.band-b {
+  background: #F9D423;
+}
+
+.band-c {
+  background: #F38630;
+}
+
+.band-d {
+  background: #FF4E50;
+}
+
+.nav {
+  width: 180px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 30px;
+  overflow: auto;
+}
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav li {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+}
+.nav a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  padding: 10px 0;
+}
+.nav p{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+}
+.nav .nav-primary {
+  opacity: 1;
+}
+.nav .nav-primary:hover {
+  opacity: 0.7;
+}
+.nav .nav-secondary {
+  opacity: 0.4;
+}
+.nav .nav-secondary:hover {
+  opacity: 0.7;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 25px;
+  left: 1.5em;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+.menu:hover .menu-hamburger:before,
+.menu:hover .menu-hamburger:after {
+  width: 24px;
+}
+.menu.is-active .menu-hamburger {
+  background: none;
+}
+.menu.is-active .menu-hamburger:before,
+.menu.is-active .menu-hamburger:after {
+  top: 0;
+  width: 24px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.menu.is-active .menu-hamburger:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.menu.is-active .menu-hamburger:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.menu-hamburger {
+  position: relative;
+  width: 24px;
+  height: 4px;
+  margin: 10px 0;
+  background: #fff;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.menu-hamburger:before, .menu-hamburger:after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.menu-hamburger:before {
+  top: -8px;
+  left: 0;
+  width: 22px;
+}
+.menu-hamburger:after {
+  top: 8px;
+  width: 16px;
+  left: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .menu {
+    display: block;
+  }
+
+  .l-site.is-open {
+    overflow: hidden;
+  }
+  .l-site.is-open .l-page {
+    -webkit-transform: translateX(240px);
+    -moz-transform: translateX(240px);
+    -ms-transform: translateX(240px);
+    -o-transform: translateX(240px);
+    transform: translateX(240px);
+  }
+
+  .l-page {
+    margin-left: 0;
+    z-index: 3;
+  }
+
+  .l-nav {
+    z-index: 2;
+  }
+
+  .band-container {
+    padding: 0 1.5em;
+  }
+}
   </style>
 </head>
 
 <body>
+  <div class="l-site">
+    <div class="l-nav">
+      <nav class="nav">
+        <ul>
+          <li><p><u>Types</u></p></li>
+          <li class="nav-primary"><a href="#" onClick="effortImpact()">Effort/Impact</a></li>
+          <li class="nav-primary"><a href="#" onClick="riskValue()">Risk/Value</a></li>
+          <li class="nav-primary"><a href="#" onClick="importantUrgent();">Eisenhower</a></li>
+          <li class="nav-primary"><a href="#" onClick="moscow()">MoSCoW</a></li>
+          <li class="nav-secondary"><a href="#">Contact</a></li>
+          <li class="nav-secondary"><div class="trash"></div></li>
+          <!-- <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button> -->
+        </ul>
+      </nav>
+    </div>
+    <div class="l-page">
+      <div class="menu">
+        <div class="menu-hamburger"></div>
+      </div>
+      <section class="band band-a">
+        <div class="band-container">
+          <div class="band-inner">
+            <div class="row">
+              <div class="col-md-6" id="one">
+                <span id="first_quadrant" style="font-weight: bold;">Low Effort & High Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Quick Wins</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="two">
+                <span id="second_quadrant" style="font-weight: bold;">High Effort & High Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Major Projects</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="three">
+                <span id="third_quadrant" style="font-weight: bold;">Low Effort & Low Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Fill Ins</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="four">
+                <span id="fourth_quadrant" style="font-weight: bold;">High Effort & Low Impact</span>
+                <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
+                <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Thankless Tasks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
   <div class="container-fluid">
     <h1>Prioritization Tool</h1>
     <div>
-    <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
+    <!-- <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
     <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
     <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button>
-    <input class="btn btn-danger btn-sm" type="reset" id="clear" value="Remove All">
+    <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button> -->
+    <input class="btn btn-danger btn-sm" type="reset" id="reset" value="Reset">
     <p style="float:right">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
   </div>
 
@@ -208,7 +510,7 @@
       e.preventDefault();
     });
 
-    $('#effort-impact').click(function(){
+    function effortImpact(){
       $('#first_quadrant').text('Low Effort & High Impact')
       $('#second_quadrant').text('High Effort & High Impact')
       $('#third_quadrant').text('Low Effort & Low Impact')
@@ -218,9 +520,9 @@
       $('#second_quadrant-content').text('Major Projects')
       $('#third_quadrant-content').text('Fill Ins')
       $('#fourth_quadrant-content').text('Thankless Tasks')
-    });
+    };
 
-    $('#important-urgent').click(function(){
+    function importantUrgent(){
       $('#first_quadrant').text('Important & Urgent')
       $('#second_quadrant').text('Important & Not Urgent')
       $('#third_quadrant').text('Not Important & Urgent')
@@ -230,9 +532,9 @@
       $('#second_quadrant-content').text('Plan')
       $('#third_quadrant-content').text('Delegate')
       $('#fourth_quadrant-content').text('Elminate')
-    });
+    };
 
-    $('#risk-value').click(function(){
+    function riskValue(){
       $('#first_quadrant').text('Low Risk & High Value')
       $('#second_quadrant').text('High Risk & High Value')
       $('#third_quadrant').text('Low Risk & Low Value')
@@ -242,9 +544,9 @@
       $('#second_quadrant-content').text('Investigate')
       $('#third_quadrant-content').text('Consider')
       $('#fourth_quadrant-content').text('Avoid')
-    });
+    };
 
-    $('#moscow').click(function(){
+    function moscow(){
       $('#first_quadrant').text('Must Have')
       $('#second_quadrant').text('Should Have')
       $('#third_quadrant').text('Could Have')
@@ -254,7 +556,17 @@
       $('#second_quadrant-content').text('Necessary for future release')
       $('#third_quadrant-content').text('Nice to have for future release')
       $('#fourth_quadrant-content').text('Might have for future release')
-    });
+    };
+
+    // $('.menu').on('click', function(){
+    //   if ($('.l-site').hasClass('is-open')) {
+    //     $('.menu').removeClass('is-active');
+    //     $('.l-site').removeClass('is-open');
+    //   } else {
+    //     $('.menu').addClass('is-active');
+    //     $('.l-site').addClass('is-open');
+    //   }
+    // });
   </script>
 </body>
 </html>

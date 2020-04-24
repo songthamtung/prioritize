@@ -19,8 +19,10 @@
   <link rel="shortcut icon" href="./favicon.ico" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.all.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script src="./src/jquery.js"></script>
+  <script src="./src/gridstack.js"></script>
+  <script src="./src/jquery-ui.js"></script>
+  <script src="./src/gridstack.jQueryUI.js"></script>
 
   <style type="text/css">
     .grid-stack {
@@ -177,6 +179,7 @@
       float: false,
       removable: '.trash',
       removeTimeout: 100,
+      alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
       acceptWidgets: function(i, el) { return true; } // function example, else can be simple: true | false | '.someClass' value
     };
     var grids = GridStack.initAll(options);
@@ -203,7 +206,7 @@
       grid.commit();
     });
 
-    var grid = GridStack.init();
+    var grid = GridStack.init(options);
     grid.addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
 
     $('#clear').click(function(){

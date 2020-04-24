@@ -210,8 +210,7 @@
       grid.commit();
     });
 
-    var grid = GridStack.init(options);
-    grid.addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
+    grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
 
     $('#clear').click(function(){
       grids.forEach(function (grid, i) {
@@ -221,7 +220,7 @@
 
     $("form").submit(function(e) {
       var task = $('#task').val()
-      grid.addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
+      grids[0].addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
       $('#task').val('')
       e.preventDefault();
     });

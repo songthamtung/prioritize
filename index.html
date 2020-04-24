@@ -54,13 +54,6 @@
    -moz-user-select: none; /* Firefox */
    -ms-user-select: none; /* Internet Explorer/Edge */
     }
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-    }
 
     /* Optional styles for demos */
     .btn-primary {
@@ -99,11 +92,14 @@
 <body>
   <div class="container-fluid">
     <h1>Prioritization Tool</h1>
+    <div>
     <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
     <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
     <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
     <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button>
     <input class="btn btn-danger btn-sm" type="reset" id="clear" value="Remove All">
+    <p style="float:right">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
+  </div>
 
     <div class="row" style="margin-top: 15px;">
       <div class="col-md-8">
@@ -161,10 +157,6 @@
         <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Eliminate</div>
         </div>
       </div>
-    </div>
-
-    <div class="footer">
-      <p>Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
     </div>
   </div>
 

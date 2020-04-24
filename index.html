@@ -22,6 +22,7 @@
   <script src="./src/jquery.js"></script>
   <script src="./src/gridstack.js"></script>
   <script src="./src/jquery-ui.js"></script>
+  <script src="./src/jquery.ui.touch.js"></script>
   <script src="./src/gridstack.jQueryUI.js"></script>
 
   <style type="text/css">
@@ -174,6 +175,9 @@
   </div>
 
   <script type="text/javascript">
+  $('.grid-stack').addTouch();
+  $('.grid-stack').css("touch-action", "none");
+
     var options = {
       column: 12,
       float: false,

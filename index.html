@@ -111,7 +111,7 @@
     <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
     <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
     <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button>
-    <input class="btn btn-danger btn-sm" type="reset" id="clear" value="Remove All">
+    <input class="btn btn-danger btn-sm" type="reset" id="reset" value="Reset Tasks">
     <p style="float:right">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
   </div>
 
@@ -141,28 +141,28 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" id="one">
         <span id="first_quadrant" style="font-weight: bold;">Low Effort & High Impact</span>
         <div class="grid-stack grid-stack-6">
           <br>
           <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Quick Wins</div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" id="two">
         <span id="second_quadrant" style="font-weight: bold;">High Effort & High Impact</span>
         <div class="grid-stack grid-stack-6">
           <br>
           <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Major Projects</div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" id="three">
         <span id="third_quadrant" style="font-weight: bold;">Low Effort & Low Impact</span>
         <div class="grid-stack grid-stack-6">
           <br>
           <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Fill Ins</div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" id="four">
         <span id="fourth_quadrant" style="font-weight: bold;">High Effort & Low Impact</span>
         <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
         <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
@@ -212,11 +212,22 @@
 
     grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
 
-    $('#clear').click(function(){
-      grids.forEach(function (grid, i) {
-        grid.removeAll(true)
-      })
-    });
+    $('#reset').click(function(){
+      repositionToGrid0(1,document.getElementById("one").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(2,document.getElementById("two").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(3,document.getElementById("three").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(4,document.getElementById("four").getElementsByClassName('grid-stack-item'))    
+    })
+
+    function repositionToGrid0(gridNumber, items) {
+      if (!items || items.length == 0) return;
+      console.log('items',items.length)
+      for (let i = 0; i < items.length; i++) {
+          if(!items[i].querySelector('.grid-stack-item-content')){ return }
+          grids[i].addWidget('<div><div class="grid-stack-item-content">' + items[i].querySelector('.grid-stack-item-content').innerText + '</div></div>', {width: 2})
+          grids[gridNumber].removeWidget(items[i])
+      }
+    }
 
     $("form").submit(function(e) {
       var task = $('#task').val()

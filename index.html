@@ -459,8 +459,21 @@ body {
     grids[0].addWidget('<div><div class="grid-stack-item-content">🚮🗑️👇</div></div>', {width: 5});
 
     $('#reset').click(function(){
-      console.log('hihi')
-    });
+      repositionToGrid0(1,document.getElementById("one").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(2,document.getElementById("two").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(3,document.getElementById("three").getElementsByClassName('grid-stack-item'))
+      repositionToGrid0(4,document.getElementById("four").getElementsByClassName('grid-stack-item'))    
+    })
+
+    function repositionToGrid0(gridNumber, items) {
+      if (!items || items.length == 0) return;
+      console.log('items',items.length)
+      for (let i = 0; i < items.length; i++) {
+          if(!items[i].querySelector('.grid-stack-item-content')){ return }
+          grids[i].addWidget('<div><div class="grid-stack-item-content">' + items[i].querySelector('.grid-stack-item-content').innerText + '</div></div>', {width: 5})
+          grids[gridNumber].removeWidget(items[i])
+      }
+    }
 
     $("form").submit(function(e) {
       var task = $('#task').val()

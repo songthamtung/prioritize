@@ -8,6 +8,7 @@
   <title>Priorities</title>
   <meta name="title" content="Priorities">
   <meta name="description" content="If everything is a priority, then nothing is. Use this tool to visualize your tasks on different prioritization matrixes. 💻📵">
+  <link rel="shortcut icon" href="./favicon.ico" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -23,48 +24,43 @@
   <meta property="twitter:description" content="If everything is a priority, then nothing is. Use this tool to visualize your tasks on different prioritization matrixes. 💻📵">
   <meta property="twitter:image" content="https://songthamtung.s3-ap-southeast-1.amazonaws.com/priorities.png">
 
-  <link rel="shortcut icon" href="./favicon.ico" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.min.css" />
-  <link rel="stylesheet" href="./src/original.css" />
-  <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.all.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./dist/jquery-ui.css">
+  <link rel="stylesheet" href="./dist/jquery.postitall.css">
+
+  <!-- JS -->
+  <script src="./dist/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script><script src="./dist/jquery-ui.js"></script>
+  <script src="./dist/jquery.postitall.js"></script>
 </head>
 
 <body>
-  <div class="l-site">
-    <div class="l-nav">
-      <nav class="nav">
-        <ul>
-          <li><p><u>Priorities</u></p></li>
-          <li class="nav-primary"><a href="#" onClick="effortImpact()">Effort/Impact</a></li>
-          <li class="nav-primary"><a href="#" onClick="riskValue()">Risk/Value</a></li>
-          <li class="nav-primary"><a href="#" onClick="importantUrgent();">Eisenhower</a></li>
-          <li class="nav-primary"><a href="#" onClick="moscow()">MoSCoW</a></li>
-          <li class="nav-primary"><form id="addTask" action="">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" id="task" placeholder="New Tasks" required>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">↵</button>
-              </div>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container"><span class="navbar-brand text-uppercase font-weight-bold"></span>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+            
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Gallery</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Portfolio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                </ul>
             </div>
-          </form></li>
-          <li>        <div class="grid-stack grid-stack-2" id="grid0">
-          </li>
-          <li style="padding-top: 5px !important">
-            <div class="row">
-              <div class="col-md-6 nav-primary">
-                <div id="trash" class="trash"></div>
-              </div>
-              <div class="col-md-6 nav-primary">
-                <div class="reset" id="reset">
-              </div>
-            </div>
-        </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="l-page">
+        </div>
+    </nav>
+</header>
+
+<div class="tl"><p class="center">m</p></div>
+<div class="tr"><p class="center">m</p></div>
+<div class="bl"><p class="center">m</p></div>
+<div class="br"><p class="center">m</p></div>
+  <!-- <div class="l-page">
       <div class="menu">
       </div>
       <section class="band band-a">
@@ -107,59 +103,16 @@
         </div>
       </section>
     </div>
-  </div>
+  </div> -->
   
   <script type="text/javascript">
-    var options = {
-      column: 12,
-      float: false,
-      removable: '.trash',
-      removeTimeout: 100,
-      acceptWidgets: function(i, el) { return true; } // function example, else can be simple: true | false | '.someClass' value
-    };
-    var grids = GridStack.initAll(options);
-
-    var items = [
-      // {x: 0, y: 0, width: 2, height: 2}
-      // {x: 3, y: 1, width: 1, height: 2},
-      // {x: 4, y: 1, width: 1, height: 1},
-      // {x: 2, y: 3, width: 3, height: 1, maxWidth: 3, id: 'special', text: 'has maxWidth=3'},
-      // {x: 2, y: 5, width: 1, height: 1}
-    ];
-
-    grids.forEach(function (grid, i) {
-      grid.on('added removed change', function(e, items) {
-        var str = '';
-        console.log('grid' + i + ' ' + e.type + ' ' + items.length + ' items:' + str );
-      });
-
-      grid.batchUpdate();
-      items.forEach(function (node) {
-        grid.addWidget('<div><div class="grid-stack-item-content">' 
-          + (node.text? node.text : '') + '</div></div>', node);
-      });
-      grid.commit();
+    $(document).ready(function() {
+      $.PostItAll.new("<p style='text-align:center'>Hello <b>world</b></p>");
+      $('#idRunTheCode').click(function(e) {
+          $('.notes').postitall();
+          e.preventDefault();
+          });
     });
-
-    grids[0].addWidget('<div><div class="grid-stack-item-content disable-select">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
-    grids[0].addWidget('<div><div class="grid-stack-item-content disable-select">🚮🗑️👇</div></div>', {width: 5});
-
-    $('#reset').click(function(){
-      repositionToGrid0(1,document.getElementById("one").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(2,document.getElementById("two").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(3,document.getElementById("three").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(4,document.getElementById("four").getElementsByClassName('grid-stack-item'))    
-    })
-
-    function repositionToGrid0(gridNumber, items) {
-      if (!items || items.length == 0) return;
-      console.log('items',items.length)
-      for (let i = 0; i < items.length; i++) {
-          if(!items[i].querySelector('.grid-stack-item-content')){ return }
-          grids[i].addWidget('<div><div class="grid-stack-item-content">' + items[i].querySelector('.grid-stack-item-content').innerText + '</div></div>', {width: 5})
-          grids[gridNumber].removeWidget(items[i])
-      }
-    }
 
     $("form").submit(function(e) {
       var task = $('#task').val()

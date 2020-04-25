@@ -1,62 +1,69 @@
 .tl { position: absolute; top: 0; left: 0; right: 50%; bottom: 50%; background: red; border:solid #000; border-width: 0 10px 10px 0; }
-    .tr { position: absolute; top: 0; left: 50%; right: 0; bottom: 50%; background: blue; border:solid #000; border-width: 0 0 10px 0; }
-    .bl { position: absolute; top: 50%; left: 0; right: 50%; bottom: 0; background: yellow; border:solid #000; border-width: 0 10px 0 0; }
-    .br { position: absolute; top: 50%; left: 50%; right: 0; bottom: 0; background: green; } 
-    .navbar {
+.tr { position: absolute; top: 0; left: 50%; right: 0; bottom: 50%; background: blue; border:solid #000; border-width: 0 0 10px 0; }
+.bl { position: absolute; top: 50%; left: 0; right: 50%; bottom: 0; background: yellow; border:solid #000; border-width: 0 10px 0 0; }
+.br { position: absolute; top: 50%; left: 50%; right: 0; bottom: 0; background: green; } 
+.navbar {
     transition: all 0.4s;
+}
+
+.navbar .nav-link {
+    color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: transparent;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #555;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 575.5px) {
+    .navbar {
+        background: #fff;
     }
 
-    .navbar .nav-link {
-        color: #fff;
-    }
-
-    .navbar .nav-link:hover,
-    .navbar .nav-link:focus {
-        color: #fff;
-        text-decoration: none;
-    }
-
-    .navbar .navbar-brand {
-        color: #fff;
-    }
-
-
-    /* Change navbar styling on scroll */
-    .navbar.active {
-        background: transparent;
-        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar.active .nav-link {
+    .navbar .navbar-brand, .navbar .nav-link {
         color: #555;
     }
+}
 
-    .navbar.active .nav-link:hover,
-    .navbar.active .nav-link:focus {
-        color: #555;
-        text-decoration: none;
-    }
-
-    .navbar.active .navbar-brand {
-        color: #555;
-    }
-
-
-    /* Change navbar styling on small viewports */
-    @media (max-width: 991.98px) {
-        .navbar {
-            background: #fff;
-        }
-
-        .navbar .navbar-brand, .navbar .nav-link {
-            color: #555;
-        }
-    }
-
-    .center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    font-weight: bold; 
+    text-decoration: underline;
+}

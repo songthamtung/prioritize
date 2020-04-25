@@ -45,21 +45,21 @@
             
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Gallery</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Portfolio</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                    <li class="nav-item active"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-plus"></i> Task</a></li>
+                    <li class="nav-item"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
+                    <li class="nav-item"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
+                    <li class="nav-item"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
+                    <li class="nav-item"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<div class="tl"><p class="center">m</p></div>
-<div class="tr"><p class="center">m</p></div>
-<div class="bl"><p class="center">m</p></div>
-<div class="br"><p class="center">m</p></div>
+<div class="tl"><p class="center" id="first_quadrant" style="font-weight: bold; text-decoration: underline;">Low Effort & High Impact</p></div>
+<div class="tr"><p class="center" id="second_quadrant" style="font-weight: bold; text-decoration: underline;">High Effort & High Impact</p></div>
+<div class="bl"><p class="center" id="third_quadrant" style="font-weight: bold; text-decoration: underline;">Low Effort & Low Impact</p></div>
+<div class="br"><p class="center" id="fourth_quadrant" style="font-weight: bold; text-decoration: underline;">High Effort & Low Impact</p></div>
   <!-- <div class="l-page">
       <div class="menu">
       </div>
@@ -113,6 +113,10 @@
           e.preventDefault();
           });
     });
+
+    function addPostIt(){
+      $.PostItAll.new("<p style='text-align:center'>Hello <b>MMMMMMMMM</b></p>");
+    };
 
     $("form").submit(function(e) {
       var task = $('#task').val()

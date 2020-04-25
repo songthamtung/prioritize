@@ -45,7 +45,7 @@
             
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-plus-square"></i> Task</a></li>
+                    <li class="nav-item bounce"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-plus-square"></i> Task</a></li>
                     <li class="nav-item matrixes active"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
                     <li class="nav-item matrixes"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
                     <li class="nav-item matrixes"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
@@ -117,6 +117,10 @@
     $('.matrixes').on('click', function() {
         $('.nav-item.active').removeClass('active');
         $(this).addClass('active');
+    });
+
+    $('.bounce').on('click', function() {
+        $('.bounce').removeClass('bounce');
     });
 
     function effortImpact(){

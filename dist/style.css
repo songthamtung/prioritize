@@ -41,6 +41,9 @@
     color: #555;
 }
 
+.nav-item.active{
+    text-decoration: underline;
+}
 
 /* Change navbar styling on small viewports */
 @media (max-width: 575.5px) {

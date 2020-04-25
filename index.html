@@ -45,11 +45,11 @@
             
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-plus-square"></i> Task</a></li>
-                    <li class="nav-item"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
-                    <li class="nav-item"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
-                    <li class="nav-item"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
-                    <li class="nav-item"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li class="nav-item"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-plus-square"></i> Task</a></li>
+                    <li class="nav-item matrixes active"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
+                    <li class="nav-item matrixes"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
+                    <li class="nav-item matrixes"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
+                    <li class="nav-item matrixes"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
                 </ul>
             </div>
         </div>
@@ -118,11 +118,9 @@
       $.PostItAll.new("<p style='text-align:center'>Hello <b>MMMMMMMMM</b></p>");
     };
 
-    $("form").submit(function(e) {
-      var task = $('#task').val()
-      grids[0].addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 5});
-      $('#task').val('')
-      e.preventDefault();
+    $('.matrixes').on('click', function() {
+        $('.nav-item.active').removeClass('active');
+        $(this).addClass('active');
     });
 
     function effortImpact(){

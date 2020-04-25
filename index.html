@@ -27,6 +27,10 @@
       height: 70px;
       background: #FF4E50 url('https://api.iconify.design/octicon-trashcan.svg') no-repeat center center / contain;
     }
+    .reset {
+      height: 70px;
+      background: #F9D423 url('https://api.iconify.design/entypo:reply-all.svg') no-repeat center center / contain;
+    }
 
     .textbar {
       background: rgba(214, 221, 214, 0.1);
@@ -360,8 +364,16 @@ body {
           </form></li>
           <li>        <div class="grid-stack grid-stack-2" id="grid0">
           </li>
-          <li class="nav-primary"><div class="trash"></div></li>
-          <!-- <li><p><a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p></li> -->
+          <li style="padding-top: 5px !important">
+            <div class="row">
+              <div class="col-md-6">
+                <div id="trash" class="trash"></div>
+              </div>
+              <div class="col-md-6 nav-primary">
+                <div class="reset" id="reset">
+              </div>
+            </div>
+        </li>
         </ul>
       </nav>
     </div>
@@ -446,10 +458,8 @@ body {
     grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
     grids[0].addWidget('<div><div class="grid-stack-item-content">🚮🗑️👇</div></div>', {width: 5});
 
-    $('#clear').click(function(){
-      grids.forEach(function (grid, i) {
-        grid.removeAll(true)
-      })
+    $('#reset').click(function(){
+      console.log('hihi')
     });
 
     $("form").submit(function(e) {

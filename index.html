@@ -295,10 +295,18 @@ body {
 
 #author {
   float:right;
-padding-top:15px;
+  padding-top:15px;
 }
 
+#warning {
+    display:none;
+  }
+
 @media screen and (max-width: 980px) {
+  #warning {
+    display:block;
+  }
+
   .menu {
     display: block;
   }
@@ -357,11 +365,13 @@ padding-top:15px;
     </div>
     <div class="l-page">
       <div class="menu">
-        <div class="menu-hamburger"></div>
       </div>
       <section class="band band-a">
         <div class="band-container">
           <div class="band-inner">
+            <div class="alert alert-danger" id="warning" role="alert">
+              Best Experienced in Desktop
+            </div>
             <div class="row">
               <div class="col-md-6" id="one">
                 <span id="first_quadrant" style="font-weight: bold; text-decoration: underline;">Low Effort & High Impact</span>

@@ -16,6 +16,9 @@
       height: 45vh !important;
       min-height: 50px;
     }
+    #grid0{
+      height: 25vh !important;
+    }
     #grid2 {
       background: lightcyan;
     }
@@ -182,7 +185,7 @@ body {
 }
 
 .nav {
-  width: 180px;
+  width: 225px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -296,6 +299,11 @@ body {
   left: 0;
 }
 
+#author {
+  float:right;
+padding-top:15px;
+}
+
 @media screen and (max-width: 980px) {
   .menu {
     display: block;
@@ -338,12 +346,18 @@ body {
           <li class="nav-primary"><a href="#" onClick="riskValue()">Risk/Value</a></li>
           <li class="nav-primary"><a href="#" onClick="importantUrgent();">Eisenhower</a></li>
           <li class="nav-primary"><a href="#" onClick="moscow()">MoSCoW</a></li>
-          <li class="nav-secondary"><a href="#">Contact</a></li>
-          <li class="nav-secondary"><div class="trash"></div></li>
-          <!-- <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
-          <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
-          <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
-          <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button> -->
+          <li class="nav-primary"><form id="addTask" action="">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="task" placeholder="New Tasks" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">↵</button>
+              </div>
+            </div>
+          </form></li>
+          <li>        <div class="grid-stack grid-stack-2" id="grid0">
+          </li>
+          <li class="nav-primary"><div class="trash"></div></li>
+          <!-- <li><p><a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p></li> -->
         </ul>
       </nav>
     </div>
@@ -386,81 +400,13 @@ body {
                 </div>
               </div>
             </div>
+            <p id="author">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
           </div>
         </div>
       </section>
     </div>
   </div>
-  <div class="container-fluid">
-    <h1>Prioritization Tool</h1>
-    <div>
-    <!-- <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button> -->
-    <input class="btn btn-danger btn-sm" type="reset" id="reset" value="Reset">
-    <p style="float:right">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
-  </div>
-
-    <div class="row" style="margin-top: 15px;">
-      <div class="col-md-8">
-        <div class="grid-stack grid-stack-12">
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="textbar">
-          <h3>Add Tasks</h3>
-          <form id="addTask" action="">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" id="task" placeholder="I want to prioritize ..." required>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">↵</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-1">
-        <div class="trash">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-        <span id="first_quadrant" style="font-weight: bold;">Important & Urgent</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Do</div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <span id="second_quadrant" style="font-weight: bold;">Important & Not Urgent</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Plan</div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <span id="third_quadrant" style="font-weight: bold;">Not Important & Urgent</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Delegate</div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <span id="fourth_quadrant" style="font-weight: bold;">Not Important & Not Urgent</span>
-        <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
-        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
-        <div class="grid-stack grid-stack-6">
-          <br>
-        <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Eliminate</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  
   <script type="text/javascript">
     var options = {
       column: 12,

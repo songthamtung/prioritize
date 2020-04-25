@@ -439,8 +439,7 @@ padding-top:15px;
       grid.commit();
     });
 
-    var grid = GridStack.init();
-    grid.addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
+    grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
 
     $('#clear').click(function(){
       grids.forEach(function (grid, i) {
@@ -450,7 +449,7 @@ padding-top:15px;
 
     $("form").submit(function(e) {
       var task = $('#task').val()
-      grid.addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
+      grids[0].addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 5});
       $('#task').val('')
       e.preventDefault();
     });

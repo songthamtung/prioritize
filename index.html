@@ -1,46 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89727720-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-89727720-3');
-  </script>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple Prioritization Tool</title>
-  <meta name="description" content="Use this to easily visualize your tasks on a drag and drop interface with different priority matrixes like Effort / Impact, Risk / Value, Important / Urgent, and MoSCoW." />
-  <link rel="shortcut icon" href="./favicon.ico" />
+  <title>Prioritization Tool</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.min.css" />
-  <script src="./src/jquery.js"></script>
-  <script src="./src/gridstack.js"></script>
-  <script src="./src/jquery-ui.js"></script>
-  <script src="./src/jquery.ui.touch.js"></script>
-  <script src="./src/gridstack.jQueryUI.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gridstack@1.1.1/dist/gridstack.all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
   <style type="text/css">
     .grid-stack {
+      height: 45vh !important;
       min-height: 50px;
     }
-    #grid2 {
-      background: lightcyan;
-    }
-    #grid2 .grid-stack-item-content {
-      background-color: #9caabc;
+    #grid0{
+      height: 25vh !important;
     }
     .grid-stack-item-removing {
       opacity: 0.5;
     }
     .trash {
-      height: 150px;
-      margin-bottom: 20px;
+      height: 81px;
       background: rgba(255, 0, 0, 0.1) center center url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDQzOC41MjkgNDM4LjUyOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDM4LjUyOSA0MzguNTI5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQxNy42ODksNzUuNjU0Yy0xLjcxMS0xLjcwOS0zLjkwMS0yLjU2OC02LjU2My0yLjU2OGgtODguMjI0TDMwMi45MTcsMjUuNDFjLTIuODU0LTcuMDQ0LTcuOTk0LTEzLjA0LTE1LjQxMy0xNy45ODkgICAgQzI4MC4wNzgsMi40NzMsMjcyLjU1NiwwLDI2NC45NDUsMGgtOTEuMzYzYy03LjYxMSwwLTE1LjEzMSwyLjQ3My0yMi41NTQsNy40MjFjLTcuNDI0LDQuOTQ5LTEyLjU2MywxMC45NDQtMTUuNDE5LDE3Ljk4OSAgICBsLTE5Ljk4NSw0Ny42NzZoLTg4LjIyYy0yLjY2NywwLTQuODUzLDAuODU5LTYuNTY3LDIuNTY4Yy0xLjcwOSwxLjcxMy0yLjU2OCwzLjkwMy0yLjU2OCw2LjU2N3YxOC4yNzQgICAgYzAsMi42NjQsMC44NTUsNC44NTQsMi41NjgsNi41NjRjMS43MTQsMS43MTIsMy45MDQsMi41NjgsNi41NjcsMi41NjhoMjcuNDA2djI3MS44YzAsMTUuODAzLDQuNDczLDI5LjI2NiwxMy40MTgsNDAuMzk4ICAgIGM4Ljk0NywxMS4xMzksMTkuNzAxLDE2LjcwMywzMi4yNjQsMTYuNzAzaDIzNy41NDJjMTIuNTY2LDAsMjMuMzE5LTUuNzU2LDMyLjI2NS0xNy4yNjhjOC45NDUtMTEuNTIsMTMuNDE1LTI1LjE3NCwxMy40MTUtNDAuOTcxICAgIFYxMDkuNjI3aDI3LjQxMWMyLjY2MiwwLDQuODUzLTAuODU2LDYuNTYzLTIuNTY4YzEuNzA4LTEuNzA5LDIuNTctMy45LDIuNTctNi41NjRWODIuMjIxICAgIEM0MjAuMjYsNzkuNTU3LDQxOS4zOTcsNzcuMzY3LDQxNy42ODksNzUuNjU0eiBNMTY5LjMwMSwzOS42NzhjMS4zMzEtMS43MTIsMi45NS0yLjc2Miw0Ljg1My0zLjE0aDkwLjUwNCAgICBjMS45MDMsMC4zODEsMy41MjUsMS40Myw0Ljg1NCwzLjE0bDEzLjcwOSwzMy40MDRIMTU1LjMxMUwxNjkuMzAxLDM5LjY3OHogTTM0Ny4xNzMsMzgwLjI5MWMwLDQuMTg2LTAuNjY0LDguMDQyLTEuOTk5LDExLjU2MSAgICBjLTEuMzM0LDMuNTE4LTIuNzE3LDYuMDg4LTQuMTQxLDcuNzA2Yy0xLjQzMSwxLjYyMi0yLjQyMywyLjQyNy0yLjk5OCwyLjQyN0gxMDAuNDkzYy0wLjU3MSwwLTEuNTY1LTAuODA1LTIuOTk2LTIuNDI3ICAgIGMtMS40MjktMS42MTgtMi44MS00LjE4OC00LjE0My03LjcwNmMtMS4zMzEtMy41MTktMS45OTctNy4zNzktMS45OTctMTEuNTYxVjEwOS42MjdoMjU1LjgxNVYzODAuMjkxeiIgZmlsbD0iI2ZmOWNhZSIvPgoJCTxwYXRoIGQ9Ik0xMzcuMDQsMzQ3LjE3MmgxOC4yNzFjMi42NjcsMCw0Ljg1OC0wLjg1NSw2LjU2Ny0yLjU2N2MxLjcwOS0xLjcxOCwyLjU2OC0zLjkwMSwyLjU2OC02LjU3VjE3My41ODEgICAgYzAtMi42NjMtMC44NTktNC44NTMtMi41NjgtNi41NjdjLTEuNzE0LTEuNzA5LTMuODk5LTIuNTY1LTYuNTY3LTIuNTY1SDEzNy4wNGMtMi42NjcsMC00Ljg1NCwwLjg1NS02LjU2NywyLjU2NSAgICBjLTEuNzExLDEuNzE0LTIuNTY4LDMuOTA0LTIuNTY4LDYuNTY3djE2NC40NTRjMCwyLjY2OSwwLjg1NCw0Ljg1MywyLjU2OCw2LjU3QzEzMi4xODYsMzQ2LjMxNiwxMzQuMzczLDM0Ny4xNzIsMTM3LjA0LDM0Ny4xNzJ6IiBmaWxsPSIjZmY5Y2FlIi8+CgkJPHBhdGggZD0iTTIxMC4xMjksMzQ3LjE3MmgxOC4yNzFjMi42NjYsMCw0Ljg1Ni0wLjg1NSw2LjU2NC0yLjU2N2MxLjcxOC0xLjcxOCwyLjU2OS0zLjkwMSwyLjU2OS02LjU3VjE3My41ODEgICAgYzAtMi42NjMtMC44NTItNC44NTMtMi41NjktNi41NjdjLTEuNzA4LTEuNzA5LTMuODk4LTIuNTY1LTYuNTY0LTIuNTY1aC0xOC4yNzFjLTIuNjY0LDAtNC44NTQsMC44NTUtNi41NjcsMi41NjUgICAgYy0xLjcxNCwxLjcxNC0yLjU2OCwzLjkwNC0yLjU2OCw2LjU2N3YxNjQuNDU0YzAsMi42NjksMC44NTQsNC44NTMsMi41NjgsNi41N0MyMDUuMjc0LDM0Ni4zMTYsMjA3LjQ2NSwzNDcuMTcyLDIxMC4xMjksMzQ3LjE3MnogICAgIiBmaWxsPSIjZmY5Y2FlIi8+CgkJPHBhdGggZD0iTTI4My4yMiwzNDcuMTcyaDE4LjI2OGMyLjY2OSwwLDQuODU5LTAuODU1LDYuNTctMi41NjdjMS43MTEtMS43MTgsMi41NjItMy45MDEsMi41NjItNi41N1YxNzMuNTgxICAgIGMwLTIuNjYzLTAuODUyLTQuODUzLTIuNTYyLTYuNTY3Yy0xLjcxMS0xLjcwOS0zLjkwMS0yLjU2NS02LjU3LTIuNTY1SDI4My4yMmMtMi42NywwLTQuODUzLDAuODU1LTYuNTcxLDIuNTY1ICAgIGMtMS43MTEsMS43MTQtMi41NjYsMy45MDQtMi41NjYsNi41Njd2MTY0LjQ1NGMwLDIuNjY5LDAuODU1LDQuODUzLDIuNTY2LDYuNTdDMjc4LjM2NywzNDYuMzE2LDI4MC41NSwzNDcuMTcyLDI4My4yMiwzNDcuMTcyeiIgZmlsbD0iI2ZmOWNhZSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=) no-repeat;
     }
 
@@ -100,92 +83,340 @@
       text-align: center;
       background-color: #18bc9c;
     }
+
+    html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #5d676c;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.l-site {
+  margin: 0 auto;
+  max-width: 1600px;
+  position: relative;
+  z-index: 1;
+}
+.l-site:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: block;
+  background: #3a4043;
+  z-index: 1;
+}
+
+.l-page {
+  position: relative;
+  margin-left: 240px;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 1px 0 25px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.35s;
+  -moz-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.l-nav {
+  position: absolute;
+  width: 240px;
+  display: block;
+  background: #3a4043;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.band h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  color: #fff;
+  font-size: 32px;
+}
+.band p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 17px;
+}
+
+.band-container {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-height: 85vh;
+  max-width: 960px;
+  display: table;
+  position: relative;
+  padding: 0 3em;
+}
+
+.band-inner {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 1em 0 4em;
+}
+
+.band-a {
+  background: #69D2E7;
+}
+
+.band-b {
+  background: #F9D423;
+}
+
+.band-c {
+  background: #F38630;
+}
+
+.band-d {
+  background: #FF4E50;
+}
+
+.nav {
+  width: 225px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 30px;
+  overflow: auto;
+}
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav li {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+}
+.nav a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  padding: 10px 0;
+}
+.nav p{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+}
+.nav .nav-primary {
+  opacity: 1;
+}
+.nav .nav-primary:hover {
+  opacity: 0.7;
+}
+.nav .nav-secondary {
+  opacity: 0.4;
+}
+.nav .nav-secondary:hover {
+  opacity: 0.7;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 25px;
+  left: 1.5em;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+.menu:hover .menu-hamburger:before,
+.menu:hover .menu-hamburger:after {
+  width: 24px;
+}
+.menu.is-active .menu-hamburger {
+  background: none;
+}
+.menu.is-active .menu-hamburger:before,
+.menu.is-active .menu-hamburger:after {
+  top: 0;
+  width: 24px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.menu.is-active .menu-hamburger:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.menu.is-active .menu-hamburger:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.menu-hamburger {
+  position: relative;
+  width: 24px;
+  height: 4px;
+  margin: 10px 0;
+  background: #fff;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.menu-hamburger:before, .menu-hamburger:after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.menu-hamburger:before {
+  top: -8px;
+  left: 0;
+  width: 22px;
+}
+.menu-hamburger:after {
+  top: 8px;
+  width: 16px;
+  left: 0;
+}
+
+#author {
+  float:right;
+  padding-top:15px;
+}
+
+#warning {
+    display:none;
+  }
+
+@media screen and (max-width: 980px) {
+  #warning {
+    display:block;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .l-site.is-open {
+    overflow: hidden;
+  }
+  .l-site.is-open .l-page {
+    -webkit-transform: translateX(240px);
+    -moz-transform: translateX(240px);
+    -ms-transform: translateX(240px);
+    -o-transform: translateX(240px);
+    transform: translateX(240px);
+  }
+
+  .l-page {
+    margin-left: 0;
+    z-index: 3;
+  }
+
+  .l-nav {
+    z-index: 2;
+  }
+
+  .band-container {
+    padding: 0 1.5em;
+  }
+}
   </style>
 </head>
 
 <body>
-  <div class="container-fluid">
-    <h1>Simple Prioritization Tool</h1>
-    <div>
-    <button type="button" class="btn btn-secondary btn-sm" id="effort-impact">Effort / Impact</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="risk-value">Risk / Value</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="important-urgent">Important / Urgent</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="moscow">MoSCoW</button>
-    <input class="btn btn-danger btn-sm" type="reset" id="reset" value="Reset">
-    <p style="float:right">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
-  </div>
-
-    <div class="row" style="margin-top: 15px;">
-      <div class="col-md-8">
-        <div class="grid-stack grid-stack-12" style="background:rgba(214, 221, 214, 0.1) !important">
-          <br>
-          <div class="text-center disable-select" style="color:gray">Tasks</div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="textbar">
-          <h3>Add Tasks</h3>
-          <form id="addTask" action="">
+  <div class="l-site">
+    <div class="l-nav">
+      <nav class="nav">
+        <ul>
+          <li><p><u>Simple Prioritization Tool.</u></p></li>
+          <li class="nav-primary"><a href="#" onClick="effortImpact()">Effort/Impact</a></li>
+          <li class="nav-primary"><a href="#" onClick="riskValue()">Risk/Value</a></li>
+          <li class="nav-primary"><a href="#" onClick="importantUrgent();">Eisenhower</a></li>
+          <li class="nav-primary"><a href="#" onClick="moscow()">MoSCoW</a></li>
+          <li class="nav-primary"><form id="addTask" action="">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" id="task" placeholder="I want to prioritize ..." required>
+              <input type="text" class="form-control" id="task" placeholder="New Tasks" required>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit">↵</button>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-1">
-        <div class="trash">
-        </div>
-      </div>
+          </form></li>
+          <li>        <div class="grid-stack grid-stack-2" id="grid0">
+          </li>
+          <li class="nav-primary"><div class="trash"></div></li>
+          <!-- <li><p><a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p></li> -->
+        </ul>
+      </nav>
     </div>
-
-    <div class="row">
-      <div class="col-md-6" id="one">
-        <span id="first_quadrant" style="font-weight: bold;">Low Effort & High Impact</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Quick Wins</div>
-        </div>
+    <div class="l-page">
+      <div class="menu">
       </div>
-      <div class="col-md-6" id="two">
-        <span id="second_quadrant" style="font-weight: bold;">High Effort & High Impact</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Major Projects</div>
+      <section class="band band-a">
+        <div class="band-container">
+          <div class="band-inner">
+            <div class="alert alert-danger" id="warning" role="alert">
+              Best Experienced in Desktop
+            </div>
+            <div class="row">
+              <div class="col-md-6" id="one">
+                <span id="first_quadrant" style="font-weight: bold; text-decoration: underline;">Low Effort & High Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="first_quadrant-content" class="text-center disable-select" style="color:gray">Quick Wins</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="two">
+                <span id="second_quadrant" style="font-weight: bold; text-decoration: underline;">High Effort & High Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="second_quadrant-content" class="text-center disable-select" style="color:gray">Major Projects</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="three">
+                <span id="third_quadrant" style="font-weight: bold; text-decoration: underline;">Low Effort & Low Impact</span>
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                  <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Fill Ins</div>
+                </div>
+              </div>
+              <div class="col-md-6" id="four">
+                <span id="fourth_quadrant" style="font-weight: bold; text-decoration: underline;">High Effort & Low Impact</span>
+                <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
+                <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
+                <div class="grid-stack grid-stack-6">
+                  <br>
+                <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Thankless Tasks</div>
+                </div>
+              </div>
+            </div>
+            <p id="author">Made by <a href="https://www.songthamtung.com" target="_blank">Songtham Tung</a></p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6" id="three">
-        <span id="third_quadrant" style="font-weight: bold;">Low Effort & Low Impact</span>
-        <div class="grid-stack grid-stack-6">
-          <br>
-          <div id="third_quadrant-content" class="text-center disable-select" style="color:gray">Fill Ins</div>
-        </div>
-      </div>
-      <div class="col-md-6" id="four">
-        <span id="fourth_quadrant" style="font-weight: bold;">High Effort & Low Impact</span>
-        <!-- <a onClick="toggleFloat(this, 0)" class="btn btn-primary" href="#">float: true</a>
-        <a onClick="compact(1)" class="btn btn-primary" href="#">Compact</a> -->
-        <div class="grid-stack grid-stack-6">
-          <br>
-        <div id="fourth_quadrant-content" class="text-center disable-select" style="color:gray">Thankless Tasks</div>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
-
+  
   <script type="text/javascript">
-  $('.grid-stack').addTouch();
-  $('.grid-stack').css("touch-action", "none");
-
     var options = {
       column: 12,
       float: false,
       removable: '.trash',
       removeTimeout: 100,
-      alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
       acceptWidgets: function(i, el) { return true; } // function example, else can be simple: true | false | '.someClass' value
     };
     var grids = GridStack.initAll(options);
@@ -212,33 +443,23 @@
       grid.commit();
     });
 
-    grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 2});
+    grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
+    grids[0].addWidget('<div><div class="grid-stack-item-content">🚮🗑️👇</div></div>', {width: 5});
 
-    $('#reset').click(function(){
-      repositionToGrid0(1,document.getElementById("one").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(2,document.getElementById("two").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(3,document.getElementById("three").getElementsByClassName('grid-stack-item'))
-      repositionToGrid0(4,document.getElementById("four").getElementsByClassName('grid-stack-item'))    
-    })
-
-    function repositionToGrid0(gridNumber, items) {
-      if (!items || items.length == 0) return;
-      console.log('items',items.length)
-      for (let i = 0; i < items.length; i++) {
-          if(!items[i].querySelector('.grid-stack-item-content')){ return }
-          grids[i].addWidget('<div><div class="grid-stack-item-content">' + items[i].querySelector('.grid-stack-item-content').innerText + '</div></div>', {width: 2})
-          grids[gridNumber].removeWidget(items[i])
-      }
-    }
+    $('#clear').click(function(){
+      grids.forEach(function (grid, i) {
+        grid.removeAll(true)
+      })
+    });
 
     $("form").submit(function(e) {
       var task = $('#task').val()
-      grids[0].addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 2});
+      grids[0].addWidget('<div><div class="grid-stack-item-content">' + task + '</div></div>', {width: 5});
       $('#task').val('')
       e.preventDefault();
     });
 
-    $('#effort-impact').click(function(){
+    function effortImpact(){
       $('#first_quadrant').text('Low Effort & High Impact')
       $('#second_quadrant').text('High Effort & High Impact')
       $('#third_quadrant').text('Low Effort & Low Impact')
@@ -248,9 +469,9 @@
       $('#second_quadrant-content').text('Major Projects')
       $('#third_quadrant-content').text('Fill Ins')
       $('#fourth_quadrant-content').text('Thankless Tasks')
-    });
+    };
 
-    $('#important-urgent').click(function(){
+    function importantUrgent(){
       $('#first_quadrant').text('Important & Urgent')
       $('#second_quadrant').text('Important & Not Urgent')
       $('#third_quadrant').text('Not Important & Urgent')
@@ -260,9 +481,9 @@
       $('#second_quadrant-content').text('Plan')
       $('#third_quadrant-content').text('Delegate')
       $('#fourth_quadrant-content').text('Elminate')
-    });
+    };
 
-    $('#risk-value').click(function(){
+    function riskValue(){
       $('#first_quadrant').text('Low Risk & High Value')
       $('#second_quadrant').text('High Risk & High Value')
       $('#third_quadrant').text('Low Risk & Low Value')
@@ -272,19 +493,29 @@
       $('#second_quadrant-content').text('Investigate')
       $('#third_quadrant-content').text('Consider')
       $('#fourth_quadrant-content').text('Avoid')
-    });
+    };
 
-    $('#moscow').click(function(){
+    function moscow(){
       $('#first_quadrant').text('Must Have')
       $('#second_quadrant').text('Should Have')
       $('#third_quadrant').text('Could Have')
       $('#fourth_quadrant').text("Won't Have")
 
-      $('#first_quadrant-content').text('Necessary for the current release')
+      $('#first_quadrant-content').text('Mandatory for the current release')
       $('#second_quadrant-content').text('Necessary for future release')
       $('#third_quadrant-content').text('Nice to have for future release')
       $('#fourth_quadrant-content').text('Might have for future release')
-    });
+    };
+
+    // $('.menu').on('click', function(){
+    //   if ($('.l-site').hasClass('is-open')) {
+    //     $('.menu').removeClass('is-active');
+    //     $('.l-site').removeClass('is-open');
+    //   } else {
+    //     $('.menu').addClass('is-active');
+    //     $('.l-site').addClass('is-open');
+    //   }
+    // });
   </script>
 </body>
 </html>

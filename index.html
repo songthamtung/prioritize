@@ -67,12 +67,16 @@
       display: inline-block;
     }
 
+    .grid-stack-item:hover{
+      cursor: move !important;
+    }
+
     .disable-select {
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* supported by Chrome and Opera */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
     }
 
     /* Optional styles for demos */
@@ -472,8 +476,8 @@ body {
       grid.commit();
     });
 
-    grids[0].addWidget('<div><div class="grid-stack-item-content">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
-    grids[0].addWidget('<div><div class="grid-stack-item-content">🚮🗑️👇</div></div>', {width: 5});
+    grids[0].addWidget('<div><div class="grid-stack-item-content disable-select">Drag me!<br>Resize me!<br> 🤗</div></div>', {width: 5});
+    grids[0].addWidget('<div><div class="grid-stack-item-content disable-select">🚮🗑️👇</div></div>', {width: 5});
 
     $('#reset').click(function(){
       repositionToGrid0(1,document.getElementById("one").getElementsByClassName('grid-stack-item'))

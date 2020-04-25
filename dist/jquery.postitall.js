@@ -296,15 +296,15 @@ var delay = (function(){
         prefix          : '#PIApostit_',//Id note prefixe
         filter          : 'domain',     //Options: domain, page, all
         savable         : true,        //Save postit in storage
-        randomColor     : true,         //Random color in new postits
+        randomColor     : false,         //Random color in new postits
         toolbar         : true,         //Show or hide toolbar
         autoHideToolBar : true,         //Animation efect on hover over postit shoing/hiding toolbar options
         removable       : true,         //Set removable feature on or off
         askOnDelete     : false,         //Confirmation before note remove
         draggable       : true,         //Set draggable feature on or off
         resizable       : true,         //Set resizable feature on or off
-        editable        : false,         //Set contenteditable and enable changing note content
-        changeoptions   : true,         //Set options feature on or off
+        editable        : true,         //Set contenteditable and enable changing note content
+        changeoptions   : false,         //Set options feature on or off
         blocked         : false,         //Postit can not be modified
         hidden          : false,         //The note can be hidden
         minimized       : false,         //true = minimized, false = maximixed

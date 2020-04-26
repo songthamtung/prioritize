@@ -339,17 +339,17 @@ var delay = (function(){
         posX            : '10px',                   //x coordinate (from left)
         posY            : '10px',                   //y coordinate (from top)
         right           : '',                       //x coordinate (from right). This property invalidate posX
-        height          : 100,                      //Note total height
+        height          : 80,                      //Note total height
         width           : 160,                      //Note total width
         minHeight       : 30,                      //Note resizable min-width
         minWidth        : 40,                      //Note resizable min-height
         oldPosition     : {},                       //Position when minimized/collapsed (internal use)
         //Config note style
         style : {
-            tresd           : true,                 //General style in 3d format
+            tresd           : false,                 //General style in 3d format
             backgroundcolor : '#FFFA3C',            //Background color in new postits when randomColor = false
             textcolor       : '#333333',            //Text color
-            textshadow      : true,                 //Shadow in the text
+            textshadow      : false,                 //Shadow in the text
             fontfamily      : 'Open Sans',          //Default font
             fontsize        : 'medium',             //Default font size
             arrow           : 'none',               //Default arrow : none, top, right, bottom, left

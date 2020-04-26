@@ -81,6 +81,10 @@
   display:none
 }
 
+#newTask {
+  white-space: nowrap;
+}
+
 /* Change navbar styling on small viewports */
 @media (max-width: 575.5px) {
   #newTaskMobile{

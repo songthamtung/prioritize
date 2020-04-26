@@ -121,6 +121,7 @@
         total_notes = total;
       });
       if (total_notes > 0) {
+        $('.bounce').removeClass('bounce');
         return
       }
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;

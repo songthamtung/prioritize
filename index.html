@@ -110,10 +110,11 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $.PostItAll.new("<p><b>Edit</b>, <i>Drag</i>, Resize, & Delete</p>");
+      $('.PIApostit').addTouch();
+      $('.PIApostit').css("touch-action", "none");
     });
 
     $('.PIApostit').addTouch();
-    $('.PIApostit').css("touch-action", "none");
 
     function addPostIt(){
       $.PostItAll.new("<p style='text-align:center'>New Task</p>");

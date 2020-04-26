@@ -244,6 +244,7 @@
 	position:absolute;
 	display: none;
 	z-index: 999995;
+	touch-action: none;
 
 	-webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;

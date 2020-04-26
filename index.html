@@ -115,8 +115,15 @@
   </div> -->  
   <script type="text/javascript">
     $(document).ready(function() {
+      $.PostItAll.load();
+      var total_notes = 0
+      $.PostItAll.length(function(total) {
+        total_notes = total;
+      });
+      if (total_notes > 0) {
+        return
+      }
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;
-
       if (isMobile) {
         $.PostItAll.new("<p><i>Drag</i>, <b>Resize</b>, & Delete</p>");
       }

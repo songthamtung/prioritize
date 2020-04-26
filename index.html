@@ -41,7 +41,7 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header visible" id="navbar">
     <nav class="navbar navbar-expand-sm fixed-top py-3">
         <div class="container"><span class="navbar-brand text-uppercase font-weight-bold"></span>
           <form class="navbar-form navbar-left" id="newTaskMobile">
@@ -66,8 +66,10 @@
 <div class="tl"><p class="center" id="first_quadrant">Low Effort &<br> High Impact</p></div>
 <div class="tr"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
 <div class="bl"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p></div>
-<div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p></div>
-  <!-- <div class="l-page">
+<div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedButton"><a href="#" onClick="toggleMenuVisibility()"><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div>
+</div>
+  
+<!-- <div class="l-page">
       <div class="menu">
       </div>
       <section class="band band-a">
@@ -110,8 +112,7 @@
         </div>
       </section>
     </div>
-  </div> -->
-  
+  </div> -->  
   <script type="text/javascript">
     $(document).ready(function() {
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;
@@ -133,6 +134,20 @@
       }
       return false;
     });   
+
+    function toggleMenuVisibility(){
+      if($('#eye').hasClass('fa-eye-slash')) {
+        $('#navbar').removeClass('visible');
+        $('#navbar').addClass('invisible');
+        $('#eye').removeClass('fa fa-eye-slash');
+        $('#eye').addClass('fa fa-eye');
+      } else {
+        $('#navbar').removeClass('invisible');
+        $('#navbar').addClass('visible');
+        $('#eye').removeClass('fa fa-eye');
+        $('#eye').addClass('fa fa-eye-slash');
+      }
+    }
 
     function addPostIt(val){
       var string = "New Task"

@@ -1468,10 +1468,10 @@ var delay = (function(){
             }
 
             if(contentHeight > divHeight - 30) {
-                divHeight = contentHeight + htmlEditorBarHeight;
+                divHeight = contentHeight;
             } else if(contentHeight > options.minHeight) {
                 //Comment this line if we want to preserve user height
-                divHeight = contentHeight + htmlEditorBarHeight;
+                // divHeight = contentHeight + htmlEditorBarHeight;
             }
             options.height = divHeight;
             obj.css('height', divHeight);

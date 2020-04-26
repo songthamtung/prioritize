@@ -118,13 +118,13 @@
     });
 
     $('#newTaskForm').keypress(function (e) {
-      e.preventDefault()
       var key = e.which;
       if(key == 13) {
           addPostIt($('#newTaskForm').val())
           $('#newTaskForm').val('')
       }
-      });   
+      return false;
+    });   
 
     function addPostIt(val){
       var string = "New Task"

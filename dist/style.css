@@ -44,7 +44,7 @@
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: #fff;
+    opacity: .5;
     text-decoration: none;
 }
 

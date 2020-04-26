@@ -27,6 +27,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">
   <link rel="stylesheet" href="./dist/jquery-ui.css">
   <link rel="stylesheet" href="./dist/jquery.postitall.css">
 
@@ -62,10 +63,10 @@
     </nav>
 </header>
 
-<div class="tl"><p class="center" id="first_quadrant">Low Effort & High Impact</p></div>
-<div class="tr"><p class="center" id="second_quadrant">High Effort & High Impact</p></div>
-<div class="bl"><p class="center" id="third_quadrant">Low Effort & Low Impact</p></div>
-<div class="br"><p class="center" id="fourth_quadrant">High Effort & Low Impact</p></div>
+<div class="tl"><p class="center" id="first_quadrant">Low Effort &<br> High Impact</p></div>
+<div class="tr"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
+<div class="bl"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p></div>
+<div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p></div>
   <!-- <div class="l-page">
       <div class="menu">
       </div>
@@ -151,51 +152,51 @@
     });
 
     function effortImpact(){
-      $('#first_quadrant').text('Low Effort & High Impact')
-      $('#second_quadrant').text('High Effort & High Impact')
-      $('#third_quadrant').text('Low Effort & Low Impact')
-      $('#fourth_quadrant').text('High Effort & Low Impact')
+      $('#first_quadrant').html('Low Effort &<br>High Impact')
+      $('#second_quadrant').html('High Effort &<br> High Impact')
+      $('#third_quadrant').html('Low Effort &<br> Low Impact')
+      $('#fourth_quadrant').html('High Effort &<br> Low Impact')
 
-      $('#first_quadrant-content').text('Quick Wins')
-      $('#second_quadrant-content').text('Major Projects')
-      $('#third_quadrant-content').text('Fill Ins')
-      $('#fourth_quadrant-content').text('Thankless Tasks')
+      $('#first_quadrant-content').html('Quick Wins')
+      $('#second_quadrant-content').html('Major Projects')
+      $('#third_quadrant-content').html('Fill Ins')
+      $('#fourth_quadrant-content').html('Thankless Tasks')
     };
 
     function importantUrgent(){
-      $('#first_quadrant').text('Important & Urgent')
-      $('#second_quadrant').text('Important & Not Urgent')
-      $('#third_quadrant').text('Not Important & Urgent')
-      $('#fourth_quadrant').text('Not Important & Not Urgent')
+      $('#first_quadrant').html('Important &<br> Urgent')
+      $('#second_quadrant').html('Important &<br> Not Urgent')
+      $('#third_quadrant').html('Not Important &<br> Urgent')
+      $('#fourth_quadrant').html('Not Important &<br> Not Urgent')
 
-      $('#first_quadrant-content').text('Do')
-      $('#second_quadrant-content').text('Plan')
-      $('#third_quadrant-content').text('Delegate')
-      $('#fourth_quadrant-content').text('Elminate')
+      $('#first_quadrant-content').html('Do')
+      $('#second_quadrant-content').html('Plan')
+      $('#third_quadrant-content').html('Delegate')
+      $('#fourth_quadrant-content').html('Elminate')
     };
 
     function riskValue(){
-      $('#first_quadrant').text('Low Risk & High Value')
-      $('#second_quadrant').text('High Risk & High Value')
-      $('#third_quadrant').text('Low Risk & Low Value')
-      $('#fourth_quadrant').text('High Risk & Low Value')
+      $('#first_quadrant').html('Low Risk &<br> High Value')
+      $('#second_quadrant').html('High Risk &<br> High Value')
+      $('#third_quadrant').html('Low Risk &<br> Low Value')
+      $('#fourth_quadrant').html('High Risk &<br> Low Value')
 
-      $('#first_quadrant-content').text('Prioritize')
-      $('#second_quadrant-content').text('Investigate')
-      $('#third_quadrant-content').text('Consider')
-      $('#fourth_quadrant-content').text('Avoid')
+      $('#first_quadrant-content').html('Prioritize')
+      $('#second_quadrant-content').html('Investigate')
+      $('#third_quadrant-content').html('Consider')
+      $('#fourth_quadrant-content').html('Avoid')
     };
 
     function moscow(){
-      $('#first_quadrant').text('Must Have')
-      $('#second_quadrant').text('Should Have')
-      $('#third_quadrant').text('Could Have')
-      $('#fourth_quadrant').text("Won't Have")
+      $('#first_quadrant').html('Must Have')
+      $('#second_quadrant').html('Should Have')
+      $('#third_quadrant').html('Could Have')
+      $('#fourth_quadrant').html("Won't Have")
 
-      $('#first_quadrant-content').text('Mandatory for the current release')
-      $('#second_quadrant-content').text('Necessary for future release')
-      $('#third_quadrant-content').text('Nice to have for future release')
-      $('#fourth_quadrant-content').text('Might have for future release')
+      $('#first_quadrant-content').html('Mandatory for the current release')
+      $('#second_quadrant-content').html('Necessary for future release')
+      $('#third_quadrant-content').html('Nice to have for future release')
+      $('#fourth_quadrant-content').html('Might have for future release')
     };
   </script>
 </body>

@@ -110,7 +110,8 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     font-weight: bold; 
-    text-decoration: underline;
+    font-family: 'Permanent Marker', cursive;
+    font-size:30px;
 }
 
 .bounce {

@@ -1,7 +1,38 @@
-.tl { position: absolute; top: 0; left: 0; right: 50%; bottom: 50%; background: red; border:solid #000; border-width: 0 10px 10px 0; }
-.tr { position: absolute; top: 0; left: 50%; right: 0; bottom: 50%; background: blue; border:solid #000; border-width: 0 0 10px 0; }
-.bl { position: absolute; top: 50%; left: 0; right: 50%; bottom: 0; background: yellow; border:solid #000; border-width: 0 10px 0 0; }
-.br { position: absolute; top: 50%; left: 50%; right: 0; bottom: 0; background: green; } 
+.tl { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 50%; 
+  bottom: 50%; 
+  background: red; 
+  border:solid #000; 
+  border-width: 0 10px 10px 0; 
+}
+.tr { 
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  right: 0; 
+  bottom: 50%; 
+  background: blue; 
+  border:solid #000; 
+  border-width: 0 0 10px 0; }
+.bl { 
+  position: absolute; 
+  top: 50%; 
+  left: 0; 
+  right: 50%; 
+  bottom: 0; 
+  background: yellow; 
+  border:solid #000; 
+  border-width: 0 10px 0 0; }
+.br { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  right: 0; 
+  bottom: 0; 
+  background: green; } 
 .navbar {
     transition: all 0.4s;
 }
@@ -110,4 +141,3 @@
       -ms-transform: translateY(-15px);
       -o-transform: translateY(-15px);
       transform: translateY(-15px); } }
-  <body>

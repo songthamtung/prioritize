@@ -118,6 +118,14 @@
     font-size:30px;
 }
 
+#hideMenu{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.displayNone {
+  display: none
+}
+
 #fixedButton {
   position: fixed;
   bottom: 10px;

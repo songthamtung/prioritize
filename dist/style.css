@@ -23,7 +23,7 @@
   left: 0; 
   right: 50%; 
   bottom: 0; 
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(232,200,72,1) 0%, rgba(204,107,163,1) 100.7% );
+  background-image: radial-gradient( circle 979px at 1.5% 3%,  rgba(255,198,147,1) 0%, rgba(255,246,233,1) 100.2% );
   border:solid #000; 
   border-width: 0 10px 0 0; }
 .br { 

@@ -313,7 +313,7 @@ var delay = (function(){
         addNew          : false,         //Create a new postit
         showInfo        : false,         //Show info icon (info tab)
         showMeta        : false,         //Show info icon (meta tab)
-        pasteHtml       : false,         //Allow paste html in contenteditor
+        pasteHtml       : true,         //Allow paste html in contenteditor
         htmlEditor      : false,         //Html editor (trumbowyg)
         autoPosition    : true,         //Automatic reposition of the notes when user resize screen
         addArrow        : 'back',       //Add arrow to notes : none, front, back, all

@@ -81,10 +81,10 @@
       }
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;
       if (isMobile) {
-        $.PostItAll.new({content:"<p><i>Drag</i>, <b>Resize</b>, & Delete</p>"});
+        $.PostItAll.new({content:"<p><i>Drag</i>, <b>Resize</b>, & Delete</p>", flags : { highlight: true }});
       }
       else {
-        $.PostItAll.new({content: "<p><b>Edit</b>, <i>Drag</i>, Resize, & Delete</p>"});
+        $.PostItAll.new({content: "<p><b>Edit</b>, <i>Drag</i>, Resize, & Delete</p>", flags : { highlight: true }});
       }
       $('.PIApostit').draggable()
     });

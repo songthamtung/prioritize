@@ -2,6 +2,7 @@
 
 /* Default note style */
 .note {
+	font-family: 'Short Stack', cursive !important;
 	box-shadow: rgba(0, 0, 0, 0.4) 2px 5px 5px;
 	line-height: 1em;
 	border-bottom-right-radius: 60px 5px !important; 

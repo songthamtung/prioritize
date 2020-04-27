@@ -96,8 +96,8 @@
       if(key == 13) {
           addPostIt($('#newTaskForm').val())
           $('#newTaskForm').val('')
+          return false;
       }
-      return false;
     });   
 
     function toggleMenuVisibility(){

@@ -347,7 +347,7 @@ var delay = (function(){
         //Config note style
         style : {
             tresd           : false,                 //General style in 3d format
-            backgroundcolor : '#FFFA3C',            //Background color in new postits when randomColor = false
+            backgroundcolor : '#ffff88',            //Background color in new postits when randomColor = false
             textcolor       : '#333333',            //Text color
             textshadow      : false,                 //Shadow in the text
             fontfamily      : 'Open Sans',          //Default font

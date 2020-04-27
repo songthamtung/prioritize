@@ -1752,7 +1752,7 @@ var delay = (function(){
         //On screen resize, notes will preserve relative position to new width screen
         relativePosition : function(event) {
             var t = this;
-            if(!$.fn.postitall.globals.autoPosition || !t.options.features.autoPosition) {
+            if(!$.fn.postitall.globals.autoPosition) {
                 $(window).off('resize');
                 return;
             }

@@ -85,8 +85,8 @@
 
   <div class="tl"><p class="center" id="first_quadrant">Low Effort &<br> High Impact</p></div>
   <div class="tr"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
-  <div class="bl"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p></div>
-  <div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
+  <div class="bl"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p><div id="fixedProductHunt"><a href="https://www.producthunt.com/posts/prioritize?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-prioritize" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=194888&theme=light" alt="Prioritize - Visualize tasks on different priority boards | Product Hunt Embed" style="width: 150px;" width="150px" /></a></div></div>
+  <div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedMenuButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
 
   <script type="text/javascript">
     $(document).ready(function() {
@@ -120,12 +120,14 @@
 
     function toggleMenuVisibility(){
       if($('#eye').hasClass('fa-eye-slash')) {
+        $("#fixedProductHunt").addClass('invisible');
         $('#navbar').removeClass('visible');
         $('#navbar').addClass('invisible');
         $('#eye').removeClass('fa fa-eye-slash');
         $('#eye').addClass('fa fa-eye');
         $("#hideMenu").addClass('displayNone')
       } else {
+        $("#fixedProductHunt").removeClass('invisible');
         $('#navbar').removeClass('invisible');
         $('#navbar').addClass('visible');
         $('#eye').removeClass('fa fa-eye');

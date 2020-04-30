@@ -133,24 +133,30 @@
   display: none
 }
 
-#fixedButton {
+#fixedProductHunt {
+  position: fixed;
+  bottom: 10px;
+  left: 10px; 
+}
+
+#fixedMenuButton {
   position: fixed;
   bottom: 10px;
   right: 10px; 
 }
 
-#fixedButton a:link {
+#fixedMenuButton a:link {
   color: white;
 }
-#fixedButton a:visited {
+#fixedMenuButton a:visited {
   color: white;
 }
-#fixedButton a:active {
+#fixedMenuButton a:active {
   color: white;
 }
 
 /* mouse over link */
-#fixedButton a:hover {
+#fixedMenuButton a:hover {
   opacity: .7;
 }
 

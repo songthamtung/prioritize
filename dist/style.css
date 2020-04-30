@@ -77,8 +77,12 @@
     text-decoration: underline;
 }
 
-#newTaskMobile {
+.mobileMenu {
   display:none
+}
+
+.normalMenu {
+  display:block
 }
 
 #newTask {
@@ -87,10 +91,13 @@
 
 /* Change navbar styling on small viewports */
 @media (max-width: 575.5px) {
-  #newTaskMobile{
+  .mobileMenu{
     display: block
   }
   #newTask {
+    display:none
+  }
+  .normalMenu {
     display:none
   }
   .navbar {
@@ -196,3 +203,12 @@
       -o-transform: translateY(-15px);
       transform: translateY(-15px); } 
     }
+
+.transparent {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}

@@ -54,7 +54,7 @@
   <header class="header visible" id="navbar">
     <nav class="navbar navbar-expand-sm fixed-top py-3">
         <div class="container"><span class="navbar-brand text-uppercase font-weight-bold"><img src="./dist/images/logo.png" style="height: 35px"></span>
-          <form class="navbar-form navbar-left" id="newTaskMobile">
+          <form class="navbar-form navbar-left mobileMenu">
             <div class="input-group">
                 <input type="text" class="form-control" id="newTaskForm" placeholder="Add New Task">
             </div>
@@ -62,11 +62,21 @@
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">               
-                    <li class="nav-item bounce" id="newTask"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold" style="  color: #ffff88;"><i class="fa fa-sticky-note"></i> New</a></li>
-                    <li class="nav-item matrixes active"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
-                    <li class="nav-item matrixes"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
-                    <li class="nav-item matrixes"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
-                    <li class="nav-item matrixes"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li class="nav-item bounce" id="newTask"><a href="#" onClick="addPostIt()" class="nav-link text-uppercase font-weight-bold" style="color: #ffff88; font-size:20px;"><i class="fa fa-sticky-note"></i></a></li>
+                    <li class="nav-item matrixes mobileMenu"><a href="#" onClick="effortImpact()" class="nav-link text-uppercase font-weight-bold">Effort/Impact</a></li>
+                    <li class="nav-item matrixes mobileMenu"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
+                    <li class="nav-item matrixes mobileMenu"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
+                    <li class="nav-item matrixes mobileMenu"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li class="nav-item normalMenu">
+                      <div class="dropdown">
+                      <button class="btn btn-sm btn-secondary dropdown-toggle transparent text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:20px">Effort/Impact</button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item active" href="#" onClick="effortImpact()">Effort/Impact</a>
+                        <a class="dropdown-item" href="#" onClick="riskValue()">Risk/Value</a>
+                        <a class="dropdown-item" href="#" onClick="importantUrgent()">Eisenhower</a>
+                        <a class="dropdown-item" href="#" onClick="moscow()">MoSCoW</a>
+                      </div>
+                    </div></li>
                 </ul>
             </div>
         </div>
@@ -134,6 +144,12 @@
 
     $('.matrixes').on('click', function() {
         $('.nav-item.active').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.dropdown-item').on('click', function() {
+        $('#dropdownMenuButton').text($(this).text())
+        $('.dropdown-item.active').removeClass('active');
         $(this).addClass('active');
     });
 

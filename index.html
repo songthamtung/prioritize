@@ -53,7 +53,8 @@
 <body>
   <header class="header visible" id="navbar">
     <nav class="navbar navbar-expand-sm fixed-top py-3">
-        <div class="container"><span class="navbar-brand text-uppercase font-weight-bold"><img src="./dist/images/logo.png" style="height: 35px"></span>
+        <div class="container-fluid" style="padding-right: 0px !important; padding-left: 0px !important;">
+          <span class="navbar-brand text-uppercase font-weight-bold"><img src="./dist/images/logo.png" style="height: 35px"></span>
           <form class="navbar-form navbar-left mobileMenu">
             <div class="input-group">
                 <input type="text" class="form-control" id="newTaskForm" placeholder="Add New Task">
@@ -67,7 +68,7 @@
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
-                    <li class="nav-item normalMenu">
+                    <li class="nav-item normalMenu navbar-right">
                       <div class="dropdown">
                       <button class="btn btn-sm btn-secondary dropdown-toggle transparent text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:20px">Effort/Impact</button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -159,11 +159,11 @@
       $.PostItAll.new({content:"<p style='text-align:center'>" + string + "</p>", posX: posX, posY: posY});
     };
 
-    $('.br,.bl,.tr,.tl').on('click', function(e) {
+    $('.br,.bl,.tr,.tl,nav').on('click', function(e) {
       if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink') {
         return
       }
-      if(e.target.attributes[0].nodeValue.includes('desktopView') || e.target.attributes[0].nodeValue.includes('center')) {
+      if(e.target.attributes[0].nodeValue.includes('desktopView') || e.target.attributes[0].nodeValue.includes('center') || e.target.className.includes('nav') || e.target.className.includes('container-fluid')) {
         addPostIt('',e.pageX, e.pageY)
       }
     });

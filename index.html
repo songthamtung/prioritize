@@ -160,10 +160,12 @@
     };
 
     $('.br,.bl,.tr,.tl').on('click', function(e) {
-      if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink' || !e.target.attributes[0].nodeValue.includes('desktopView')) {
-          return
+      if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink') {
+        return
       }
+      if(e.target.attributes[0].nodeValue.includes('desktopView') || e.target.attributes[0].nodeValue.includes('center')) {
         addPostIt('',e.pageX, e.pageY)
+      }
     });
 
     $('.matrixes').on('click', function() {

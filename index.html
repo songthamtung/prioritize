@@ -88,7 +88,9 @@
   <div class="tr desktopView"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
   <div class="bl desktopView"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p><div id="fixedProductHunt"><a href="https://www.producthunt.com/posts/prioritize?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-prioritize" target="_blank" id="productHuntLink"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=194888&theme=light" alt="Prioritize - Visualize tasks on different priority boards | Product Hunt Embed" style="width: 150px;" width="150px" id="productHuntLink"/></a></div></div>
   <div class="br desktopView"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedMenuButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
-
+  <div id="tail" style="position: absolute; display: none">
+    <p>Click to create</p>
+  </div>
   <script type="text/javascript">
     $( window ).resize(function() {
       if(window.matchMedia("only screen and (max-width: 575.5px)").matches){
@@ -158,6 +160,32 @@
       if(!posY) { posY = 10 }
       $.PostItAll.new({content:"<p style='text-align:center'>" + string + "</p>", posX: posX, posY: posY});
     };
+
+    $(document).bind('mousemove', function(e){
+      if($("#fixedMenuButton:hover").length != 0 || 
+         $("#fixedProductHunt:hover").length != 0 ||
+         $(".navbar-nav:hover").length != 0 ||
+         !$(".tl").hasClass('desktopView')) {
+        $('#tail').css({ 
+          display: 'none'
+        })
+      }
+      else if ($('.br:hover').length != 0 || 
+          $('.bl:hover').length != 0 || 
+          $('.tr:hover').length != 0 || 
+          $('.tl:hover').length != 0 ||
+          $('nav:hover').length != 0 ) {
+        $('#tail').css({
+            display: 'block',
+            left: e.pageX + 20,
+            top: e.pageY + 15
+        });
+      } else {
+        $('#tail').css({ 
+          display: 'none'
+        })
+      }
+    });
 
     $('.br,.bl,.tr,.tl,nav').on('click', function(e) {
       if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink') {

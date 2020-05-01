@@ -92,7 +92,7 @@
     <p>Click to create</p>
   </div>
   <script type="text/javascript">
-    $( window ).resize(function() {
+    window.onresize = function() {
       if(window.matchMedia("only screen and (max-width: 575.5px)").matches){
         $('.tl').removeClass('desktopView');
         $('.tr').removeClass('desktopView');
@@ -104,7 +104,7 @@
         $('.br').addClass('desktopView');
         $('.bl').addClass('desktopView');
       }
-    });
+    };
 
     $(document).ready(function() {
       $.PostItAll.load();
@@ -119,6 +119,10 @@
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;
       if (isMobile) {
         $.PostItAll.new({content:"<p><i>Drag</i>, <b>Resize</b>, & Delete this Task.<br><br>Then try creating a new one and prioritize! 😻</p><p><img src='https://songthamtung.s3-ap-southeast-1.amazonaws.com/lulu.jpeg'></p>", flags : { highlight: true }});
+        $('.tl').removeClass('desktopView');
+        $('.tr').removeClass('desktopView');
+        $('.br').removeClass('desktopView');
+        $('.bl').removeClass('desktopView');
       }
       else {
         $.PostItAll.new({content: "<p><b>Edit</b>, <i>Drag</i>, Resize, & Delete this Task.<br><br>Then try creating a new one and prioritize! 😻<br></p><p><img src='https://songthamtung.s3-ap-southeast-1.amazonaws.com/lulu.jpeg'></p>", flags : { highlight: true }});
@@ -188,10 +192,16 @@
     });
 
     $('.br,.bl,.tr,.tl,nav').on('click', function(e) {
-      if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink') {
+      if(e.target.id == 'hideMenu' || 
+         e.target.id == 'eye' || 
+         e.target.id == 'productHuntLink' ||
+         !$(".tl").hasClass('desktopView')) {
         return
       }
-      if(e.target.attributes[0].nodeValue.includes('desktopView') || e.target.attributes[0].nodeValue.includes('center') || e.target.className.includes('nav') || e.target.className.includes('container-fluid')) {
+      if(e.target.attributes[0].nodeValue.includes('desktopView') || 
+         e.target.attributes[0].nodeValue.includes('center') || 
+         e.target.className.includes('nav') || 
+         e.target.className.includes('container-fluid')) {
         addPostIt('',e.pageX, e.pageY)
       }
     });

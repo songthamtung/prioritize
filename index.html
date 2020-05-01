@@ -84,12 +84,26 @@
     </nav>
   </header>
 
-  <div class="tl"><p class="center" id="first_quadrant">Low Effort &<br> High Impact</p></div>
-  <div class="tr"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
-  <div class="bl"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p><div id="fixedProductHunt"><a href="https://www.producthunt.com/posts/prioritize?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-prioritize" target="_blank" id="productHuntLink"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=194888&theme=light" alt="Prioritize - Visualize tasks on different priority boards | Product Hunt Embed" style="width: 150px;" width="150px" id="productHuntLink"/></a></div></div>
-  <div class="br"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedMenuButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
+  <div class="tl desktopView"><p class="center" id="first_quadrant">Low Effort &<br> High Impact</p></div>
+  <div class="tr desktopView"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
+  <div class="bl desktopView"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p><div id="fixedProductHunt"><a href="https://www.producthunt.com/posts/prioritize?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-prioritize" target="_blank" id="productHuntLink"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=194888&theme=light" alt="Prioritize - Visualize tasks on different priority boards | Product Hunt Embed" style="width: 150px;" width="150px" id="productHuntLink"/></a></div></div>
+  <div class="br desktopView"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedMenuButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
 
   <script type="text/javascript">
+    $( window ).resize(function() {
+      if(window.matchMedia("only screen and (max-width: 575.5px)").matches){
+        $('.tl').removeClass('desktopView');
+        $('.tr').removeClass('desktopView');
+        $('.br').removeClass('desktopView');
+        $('.bl').removeClass('desktopView');
+      } else {
+        $('.tl').addClass('desktopView');
+        $('.tr').addClass('desktopView');
+        $('.br').addClass('desktopView');
+        $('.bl').addClass('desktopView');
+      }
+    });
+
     $(document).ready(function() {
       $.PostItAll.load();
       var total_notes = 0
@@ -146,8 +160,7 @@
     };
 
     $('.br,.bl,.tr,.tl').on('click', function(e) {
-      if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink') {
-          console.log('hidemenu clicked')
+      if(e.target.id == 'hideMenu' || e.target.id == 'eye' || e.target.id == 'productHuntLink' || !e.target.attributes[0].nodeValue.includes('desktopView')) {
           return
       }
         addPostIt('',e.pageX, e.pageY)

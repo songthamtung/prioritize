@@ -57,7 +57,7 @@
           <span class="navbar-brand text-uppercase font-weight-bold"><img src="./dist/images/logo.png" style="height: 35px"></span>
           <form class="navbar-form navbar-left mobileMenu">
             <div class="input-group">
-                <input type="text" class="form-control" id="newTaskForm" placeholder="Add New Task">
+                <input type="text" class="form-control" id="newTaskForm" placeholder="Add New Note">
             </div>
           </form>
             <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -88,7 +88,7 @@
   <div class="tr desktopView"><p class="center" id="second_quadrant">High Effort &<br> High Impact</p></div>
   <div class="bl desktopView"><p class="center" id="third_quadrant">Low Effort &<br> Low Impact</p><div id="fixedProductHunt"><a href="https://www.producthunt.com/posts/prioritize?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-prioritize" target="_blank" id="productHuntLink"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=194888&theme=light" alt="Prioritize - Visualize tasks on different priority boards | Product Hunt Embed" style="width: 150px;" width="150px" id="productHuntLink"/></a></div></div>
   <div class="br desktopView"><p class="center" id="fourth_quadrant">High Effort &<br> Low Impact</p>  <div id="fixedMenuButton"><a href="#" onClick="toggleMenuVisibility()"><span id="hideMenu">Hide Menu </span><i id="eye" class="fa fa-eye-slash" aria-hidden="true"></i></a></div></div>
-  <div id="tail" style="position: absolute; display: none">
+  <div id="tail">
     <p>Click to create</p>
   </div>
   <script type="text/javascript">
@@ -158,7 +158,7 @@
     }
 
     function addPostIt(val, posX, posY){
-      var string = "New Task"
+      var string = "New Note"
       if(val){ string = val }
       if(!posX) { posX = 10 }
       if(!posY) { posY = 10 }
@@ -169,7 +169,8 @@
       if($("#fixedMenuButton:hover").length != 0 || 
          $("#fixedProductHunt:hover").length != 0 ||
          $(".navbar-nav:hover").length != 0 ||
-         !$(".tl").hasClass('desktopView')) {
+         !$(".tl").hasClass('desktopView') ||
+         !$('#eye').hasClass('fa-eye-slash')) {
         $('#tail').css({ 
           display: 'none'
         })

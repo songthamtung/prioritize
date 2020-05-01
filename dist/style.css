@@ -222,3 +222,9 @@
 .dropdown-item {
   padding: .25rem 0.5rem;
 }
+
+#tail {
+  position: absolute; 
+  display: none;
+  font-size: 12px;
+}

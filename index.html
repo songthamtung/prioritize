@@ -76,6 +76,7 @@
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="riskValue()">Risk/Value</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="importantUrgent()">Eisenhower</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="moscow()">MoSCoW</a>
+                        <a id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a>
                       </div>
                     </div></li>
                 </ul>
@@ -269,6 +270,11 @@
       $('#third_quadrant-content').html('Nice to have for future release')
       $('#fourth_quadrant-content').html('Might have for future release')
     };
+
+    $('#idImportAll').click(function(e) {
+        $.PostItAll.import();
+        e.preventDefault();
+    });
   </script>
 </body>
 </html>

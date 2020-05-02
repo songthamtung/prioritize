@@ -463,24 +463,24 @@ var delay = (function(){
                                     var obj = JSON.parse(file);
                                     if(typeof obj === 'object') {
                                         //create new note
-                                        var newNote = function(obj, resetDomainPage, callback) {
+                                        var newNote = function(obj, resetDomainPage) {
                                             delete obj.id; //reset id
                                             if (resetDomainPage)
                                             {
                                                 delete obj.domain;
                                                 delete obj.page;
                                             }
-                                            $.PostItAll.new(obj, callback);
+                                            $.PostItAll.new(obj);
                                         }
                                         if(obj.id !== undefined) {
                                             //One note
-                                            newNote(obj, $('#idImportFile').data("resetDomainPage"), $('#idImportFile').data("callback")(obj));
+                                            newNote({content: obj.content, posX: obj.posX, posY: obj.posY}, false);
                                         } else if($(obj).length > 0) {
                                             //Various notes
                                             $(obj).each(function(n1,obj2) {
                                                 if(obj2.id !== undefined) {
                                                     setTimeout(function() {
-                                                        newNote(obj2, $('#idImportFile').data("resetDomainPage"), $('#idImportFile').data("callback")(obj2));
+                                                        newNote({content: obj2.content, posX: obj2.posX, posY: obj2.posY}, false);
                                                     }, 250 + ( n1 * 250 ));
                                                 }
                                             });

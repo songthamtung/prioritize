@@ -834,7 +834,6 @@ var delay = (function(){
                 pair = pair.split('=');
                 result[pair[0]] = decodeURIComponent(pair[1] || '');
               });
-              console.log('result ', result)
               var len = Object.keys(result).length;
               if(len % 4 != 0) { return }
               len = len / 4

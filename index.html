@@ -78,14 +78,14 @@
                     </li>
                     <li class="nav-item normalMenu navbar-right">
                       <div class="dropdown">
-                      <button class="btn btn-sm btn-secondary dropdown-toggle transparent text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:20px">Effort/Impact</button>
+                      &nbsp;<button class="btn btn-sm btn-secondary dropdown-toggle text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:19px">Effort/Impact</button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item text-uppercase font-weight-bold active" href="#" onClick="effortImpact()">Effort/Impact</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="riskValue()">Risk/Value</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="importantUrgent()">Eisenhower</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="moscow()">MoSCoW</a>
-                        <a class="dropdown-item" id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a>
-                        <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a>
+                        <!-- <a class="dropdown-item" id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a> -->
+                        <!-- <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a> -->
                       </div>
                     </div></li>
                 </ul>
@@ -124,7 +124,6 @@
         $.PostItAll.load();
       }
       $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname)
-      // $.PostItAll.load();
 
       var total_notes = 0
       $.PostItAll.length(function(total) {

@@ -463,24 +463,24 @@ var delay = (function(){
                                     var obj = JSON.parse(file);
                                     if(typeof obj === 'object') {
                                         //create new note
-                                        var newNote = function(obj, resetDomainPage, callback) {
+                                        var newNote = function(obj, resetDomainPage) {
                                             delete obj.id; //reset id
                                             if (resetDomainPage)
                                             {
                                                 delete obj.domain;
                                                 delete obj.page;
                                             }
-                                            $.PostItAll.new(obj, callback);
+                                            $.PostItAll.new(obj);
                                         }
                                         if(obj.id !== undefined) {
                                             //One note
-                                            newNote(obj, $('#idImportFile').data("resetDomainPage"), $('#idImportFile').data("callback")(obj));
+                                            newNote({content: obj.content, posX: obj.posX, posY: obj.posY}, false);
                                         } else if($(obj).length > 0) {
                                             //Various notes
                                             $(obj).each(function(n1,obj2) {
                                                 if(obj2.id !== undefined) {
                                                     setTimeout(function() {
-                                                        newNote(obj2, $('#idImportFile').data("resetDomainPage"), $('#idImportFile').data("callback")(obj2));
+                                                        newNote({content: obj2.content, posX: obj2.posX, posY: obj2.posY}, false);
                                                     }, 250 + ( n1 * 250 ));
                                                 }
                                             });
@@ -660,6 +660,9 @@ var delay = (function(){
             }
             opt.posX = parseInt(opt.posX, 10) + "px";
             opt.posY = parseInt(opt.posY, 10) + "px";
+            if(!opt.id && opt.id !== ""){
+                opt.id = parseInt(opt.id)
+            }
 
             //New note object
             var note = new PostItAll();
@@ -796,6 +799,54 @@ var delay = (function(){
               }
           });
         },
+
+        // Convert Notes (from Storage) to Query String
+        convertNotesToQueryString : function() {
+            $.PostItAll.getNotes(function(notes) {
+                if(!notes || notes.length == 0) {
+                    return
+                }
+                var simplifiedNotes = []
+                for (var i = 0; i < notes.length; ++i) {
+                    simplifiedNotes.push({
+                        "content": notes[i].content, 
+                        "posX": notes[i].posX, 
+                        "posY": notes[i].posY, 
+                        "id": notes[i].id
+                    })
+                }
+                var data = {}
+                data.notes = simplifiedNotes
+                var queryString = $.param(data)
+                $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + "?" + queryString)
+            })
+        },
+
+        //Convert Query String to Notes
+        convertQueryStringToNotes : function(queryString) {
+            queryString = queryString.split("+").join(" ")
+              if(queryString.indexOf('?') > -1){
+                queryString = queryString.split('?')[1];
+              }
+              var pairs = queryString.split('&');
+              var result = {};
+              pairs.forEach(function(pair) {
+                pair = pair.split('=');
+                result[pair[0]] = decodeURIComponent(pair[1] || '');
+              });
+              var len = Object.keys(result).length;
+              if(len % 4 != 0) { return }
+              len = len / 4
+              for (var i = 0; i < len; ++i) {
+                $.PostItAll.new({
+                    "content": result['notes%5B' + i + '%5D%5Bcontent%5D'], 
+                    "posX": result['notes%5B' + i + '%5D%5BposX%5D'], 
+                    "posY": result['notes%5B' + i + '%5D%5BposY%5D'],
+                    "id": result['notes%5B' + i + '%5D%5Bid%5D'],
+                });
+            }
+        },
+            
 
         //Load all (from storage)
         load : function(callback, callbacks, highlight) {

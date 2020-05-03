@@ -68,14 +68,24 @@
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li>
+                      <div class="input-group" style="margin-top: 4px">
+                        <input type="text" id="copyUrl" class="form-control" onClick="generateStringQueryAndCopyUrl()">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-primary" onClick="generateStringQueryAndCopyUrl()">Copy Link</button>
+                          </div>
+                      </div>
+                    </li>
                     <li class="nav-item normalMenu navbar-right">
                       <div class="dropdown">
-                      <button class="btn btn-sm btn-secondary dropdown-toggle transparent text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:20px">Effort/Impact</button>
+                      &nbsp;<button class="btn btn-sm btn-secondary dropdown-toggle text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:19px">Effort/Impact</button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item text-uppercase font-weight-bold active" href="#" onClick="effortImpact()">Effort/Impact</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="riskValue()">Risk/Value</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="importantUrgent()">Eisenhower</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="moscow()">MoSCoW</a>
+                        <!-- <a class="dropdown-item" id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a> -->
+                        <!-- <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a> -->
                       </div>
                     </div></li>
                 </ul>
@@ -107,7 +117,14 @@
     };
 
     $(document).ready(function() {
-      $.PostItAll.load();
+      if (location.search.length > 0) {
+        $.PostItAll.convertQueryStringToNotes(location.search);
+      }
+      else{
+        $.PostItAll.load();
+      }
+      $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname)
+
       var total_notes = 0
       $.PostItAll.length(function(total) {
         total_notes = total;
@@ -138,6 +155,10 @@
           return false;
       }
     });   
+
+    function getQueryString(){
+      $.PostItAll.convertNotesToQueryString();
+    }
 
     function toggleMenuVisibility(){
       if($('#eye').hasClass('fa-eye-slash')) {
@@ -269,6 +290,20 @@
       $('#third_quadrant-content').html('Nice to have for future release')
       $('#fourth_quadrant-content').html('Might have for future release')
     };
+
+    $('#idImportAll').click(function(e) {
+        $.PostItAll.import();
+        e.preventDefault();
+    });
+
+    function generateStringQueryAndCopyUrl() {
+      $.PostItAll.convertNotesToQueryString();
+      var copyText = document.getElementById("copyUrl");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+      document.execCommand("copy");
+    }
+
   </script>
 </body>
 </html>

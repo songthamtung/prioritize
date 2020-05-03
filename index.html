@@ -88,6 +88,9 @@
                         <!-- <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a> -->
                       </div>
                     </div></li>
+                    <li>
+                      &nbsp;<button type="button" class="btn btn-danger" onClick="deleteAllNotes()" style="margin-top:4px"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -302,6 +305,13 @@
       copyText.select();
       copyText.setSelectionRange(0, 99999); /*For mobile devices*/
       document.execCommand("copy");
+    }
+
+    function deleteAllNotes() {
+      var result = confirm("Are you sure you want to delete all notes?");
+      if (result) {
+        $.PostItAll.remove();
+      }
     }
 
   </script>

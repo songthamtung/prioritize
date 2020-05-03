@@ -298,6 +298,7 @@
     });
 
     function generateStringQueryAndCopyUrl() {
+      $.PostItAll.convertNotesToQueryString();
       var copyText = document.getElementById("copyUrl");
       copyText.select();
       copyText.setSelectionRange(0, 99999); /*For mobile devices*/

@@ -818,7 +818,7 @@ var delay = (function(){
                 var data = {}
                 data.notes = simplifiedNotes
                 var queryString = $.param(data)
-                console.log('queryString: ', queryString)
+                $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + "?" + queryString)
             })
         },
 

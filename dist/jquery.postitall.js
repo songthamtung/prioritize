@@ -798,6 +798,23 @@ var delay = (function(){
         },
 
         //Load all (from storage)
+        convertNotesToQueryString : function() {
+            $.PostItAll.getNotes(function(notes) {
+                if(!notes || notes.length == 0) {
+                    return
+                }
+                var simplifiedNotes = []
+                for (var i = 0; i < notes.length; ++i) {
+                    simplifiedNotes.push({"content": notes[i].content, "posX": notes[i].posX, "posY": notes[i].posY})
+                }
+                var data = {}
+                data.notes = simplifiedNotes
+                console.log($.param(data))
+            })
+        },
+            
+
+        //Load all (from storage)
         load : function(callback, callbacks, highlight) {
             var len = -1;
             var iteration = 0;

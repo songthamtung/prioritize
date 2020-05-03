@@ -76,7 +76,8 @@
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="riskValue()">Risk/Value</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="importantUrgent()">Eisenhower</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="moscow()">MoSCoW</a>
-                        <a id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a>
+                        <a class="dropdown-item" id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a>
+                        <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a>
                       </div>
                     </div></li>
                 </ul>
@@ -139,6 +140,10 @@
           return false;
       }
     });   
+
+    function getQueryString(){
+      $.PostItAll.convertNotesToQueryString();
+    }
 
     function toggleMenuVisibility(){
       if($('#eye').hasClass('fa-eye-slash')) {

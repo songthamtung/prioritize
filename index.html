@@ -109,7 +109,14 @@
     };
 
     $(document).ready(function() {
-      $.PostItAll.load();
+      if (location.search.length > 0) {
+        $.PostItAll.convertQueryStringToNotes(location.search);
+      }
+      else{
+        $.PostItAll.load();
+      }
+      // $.PostItAll.load();
+
       var total_notes = 0
       $.PostItAll.length(function(total) {
         total_notes = total;

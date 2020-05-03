@@ -660,6 +660,9 @@ var delay = (function(){
             }
             opt.posX = parseInt(opt.posX, 10) + "px";
             opt.posY = parseInt(opt.posY, 10) + "px";
+            if(!opt.id && opt.id !== ""){
+                opt.id = parseInt(opt.id)
+            }
 
             //New note object
             var note = new PostItAll();
@@ -797,7 +800,7 @@ var delay = (function(){
           });
         },
 
-        //Load all (from storage)
+        // Convert Notes (from Storage) to Query String
         convertNotesToQueryString : function() {
             $.PostItAll.getNotes(function(notes) {
                 if(!notes || notes.length == 0) {
@@ -805,12 +808,44 @@ var delay = (function(){
                 }
                 var simplifiedNotes = []
                 for (var i = 0; i < notes.length; ++i) {
-                    simplifiedNotes.push({"content": notes[i].content, "posX": notes[i].posX, "posY": notes[i].posY})
+                    simplifiedNotes.push({
+                        "content": notes[i].content, 
+                        "posX": notes[i].posX, 
+                        "posY": notes[i].posY, 
+                        "id": notes[i].id
+                    })
                 }
                 var data = {}
                 data.notes = simplifiedNotes
-                console.log($.param(data))
+                var queryString = $.param(data)
+                console.log('queryString: ', queryString)
             })
+        },
+
+        //Convert Query String to Notes
+        convertQueryStringToNotes : function(queryString) {
+            queryString = queryString.split("+").join(" ")
+              if(queryString.indexOf('?') > -1){
+                queryString = queryString.split('?')[1];
+              }
+              var pairs = queryString.split('&');
+              var result = {};
+              pairs.forEach(function(pair) {
+                pair = pair.split('=');
+                result[pair[0]] = decodeURIComponent(pair[1] || '');
+              });
+              console.log('result ', result)
+              var len = Object.keys(result).length;
+              if(len % 4 != 0) { return }
+              len = len / 4
+              for (var i = 0; i < len; ++i) {
+                $.PostItAll.new({
+                    "content": result['notes%5B' + i + '%5D%5Bcontent%5D'], 
+                    "posX": result['notes%5B' + i + '%5D%5BposX%5D'], 
+                    "posY": result['notes%5B' + i + '%5D%5BposY%5D'],
+                    "id": result['notes%5B' + i + '%5D%5Bid%5D'],
+                });
+            }
         },
             
 

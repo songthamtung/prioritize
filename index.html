@@ -68,6 +68,14 @@
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li>
+                      <div class="input-group" style="margin-top: 4px">
+                        <input type="text" id="copyUrl" class="form-control">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-primary" onClick="generateStringQueryAndCopyUrl()">Copy Link</button>
+                          </div>
+                      </div>
+                    </li>
                     <li class="nav-item normalMenu navbar-right">
                       <div class="dropdown">
                       <button class="btn btn-sm btn-secondary dropdown-toggle transparent text-uppercase font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:4px;font-size:20px">Effort/Impact</button>
@@ -115,6 +123,7 @@
       else{
         $.PostItAll.load();
       }
+      $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname)
       // $.PostItAll.load();
 
       var total_notes = 0
@@ -287,6 +296,14 @@
         $.PostItAll.import();
         e.preventDefault();
     });
+
+    function generateStringQueryAndCopyUrl() {
+      var copyText = document.getElementById("copyUrl");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+      document.execCommand("copy");
+    }
+
   </script>
 </body>
 </html>

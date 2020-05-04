@@ -136,6 +136,7 @@
       });
       if (total_notes > 0) {
         $('.bounce').removeClass('bounce');
+        toggleMenuVisibility()
         return
       }
       let isMobile = window.matchMedia("only screen and (max-width: 575.5px)").matches;

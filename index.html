@@ -68,6 +68,7 @@
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="riskValue()" class="nav-link text-uppercase font-weight-bold">Risk/Value</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="importantUrgent()" class="nav-link text-uppercase font-weight-bold">Eisenhower</a></li>
                     <li class="nav-item matrixes mobileMenu"><a href="#" onClick="moscow()" class="nav-link text-uppercase font-weight-bold">MoSCoW</a></li>
+                    <li class="nav-item matrixes mobileMenu"><a href="#" onClick="rice()" class="nav-link text-uppercase font-weight-bold">RICE</a></li>
                     <li>
                       <div class="input-group" style="margin-top: 4px">
                         <input type="text" id="copyUrl" class="form-control" onClick="generateStringQueryAndCopyUrl()">
@@ -84,6 +85,7 @@
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="riskValue()">Risk/Value</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="importantUrgent()">Eisenhower</a>
                         <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="moscow()">MoSCoW</a>
+                        <a class="dropdown-item text-uppercase font-weight-bold" href="#" onClick="rice()">RICE</a>
                         <!-- <a class="dropdown-item" id="idImportAll" href="#"><i class="fa fa-download" aria-hidden="true"></i> Import notes</a> -->
                         <!-- <a class="dropdown-item" href="#" onClick="getQueryString()">Query String</a> -->
                       </div>
@@ -250,11 +252,6 @@
       $('#second_quadrant').html('High Effort &<br> High Impact')
       $('#third_quadrant').html('Low Effort &<br> Low Impact')
       $('#fourth_quadrant').html('High Effort &<br> Low Impact')
-
-      $('#first_quadrant-content').html('Quick Wins')
-      $('#second_quadrant-content').html('Major Projects')
-      $('#third_quadrant-content').html('Fill Ins')
-      $('#fourth_quadrant-content').html('Thankless Tasks')
     };
 
     function importantUrgent(){
@@ -262,11 +259,6 @@
       $('#second_quadrant').html('Important &<br> Not Urgent')
       $('#third_quadrant').html('Not Important &<br> Urgent')
       $('#fourth_quadrant').html('Not Important &<br> Not Urgent')
-
-      $('#first_quadrant-content').html('Do')
-      $('#second_quadrant-content').html('Plan')
-      $('#third_quadrant-content').html('Delegate')
-      $('#fourth_quadrant-content').html('Elminate')
     };
 
     function riskValue(){
@@ -274,11 +266,6 @@
       $('#second_quadrant').html('High Risk &<br> High Value')
       $('#third_quadrant').html('Low Risk &<br> Low Value')
       $('#fourth_quadrant').html('High Risk &<br> Low Value')
-
-      $('#first_quadrant-content').html('Prioritize')
-      $('#second_quadrant-content').html('Investigate')
-      $('#third_quadrant-content').html('Consider')
-      $('#fourth_quadrant-content').html('Avoid')
     };
 
     function moscow(){
@@ -286,11 +273,13 @@
       $('#second_quadrant').html('Should Have')
       $('#third_quadrant').html('Could Have')
       $('#fourth_quadrant').html("Won't Have")
+    };
 
-      $('#first_quadrant-content').html('Mandatory for the current release')
-      $('#second_quadrant-content').html('Necessary for future release')
-      $('#third_quadrant-content').html('Nice to have for future release')
-      $('#fourth_quadrant-content').html('Might have for future release')
+    function rice(){
+      $('#first_quadrant').html('Reach')
+      $('#second_quadrant').html('Impact')
+      $('#third_quadrant').html('Confidence')
+      $('#fourth_quadrant').html("Effort")
     };
 
     $('#idImportAll').click(function(e) {

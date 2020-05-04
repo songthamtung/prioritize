@@ -128,7 +128,7 @@
       else{
         $.PostItAll.load();
       }
-      $("#copyUrl:text").val(window.location.protocol + "//" + window.location.host + "/" + window.location.pathname)
+      $("#copyUrl:text").val(window.location.host)
 
       var total_notes = 0
       $.PostItAll.length(function(total) {

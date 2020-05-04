@@ -11,8 +11,15 @@ The prioritization matrixes are:
 - MoSCoW
 
 Supports
+- Responsive
 - Pictures
 - Markdown
 - HTML
 - Emojis
 - Sharing
+
+**100% Client Side**
+- HTML
+- CSS
+- Javascript
+- jQuery

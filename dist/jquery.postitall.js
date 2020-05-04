@@ -818,6 +818,22 @@ var delay = (function(){
                 var data = {}
                 data.notes = simplifiedNotes
                 var queryString = $.param(data)
+
+                var total_notes = 0
+                $.PostItAll.length(function(total) {
+                  total_notes = total;
+                });
+                if (total_notes == 0) {
+                    $("#copyUrl:text").val(window.location.host)
+                    return
+                }
+                if (total_notes == 1) {
+                    if (queryString.includes("notes%5B0%5D%5Bcontent%5D=%3Cp%3E%3Cb%3EEdit%3C%2Fb%3E%2C+%3Ci%3EDrag%3C%2Fi%3E%2C+Resize%2C+%26+Delete+this+Task.%3Cbr%3E%3Cbr%3EThen+try+creating+a+new+one+and+prioritize!+%F0%9F%98%BB%3Cbr%3E%3C%2Fp%3E%3Cp%3E%3Cimg+src%3D'https%3A%2F%2Fsongthamtung.s3-ap-southeast-1.amazonaws.com%2Flulu.jpeg'")){
+                        $("#copyUrl:text").val(window.location.host)
+                        return
+                    }
+                }
+
                 $("#copyUrl:text").val(window.location.host + "/?" + queryString)
             })
         },
